@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  html,
+  body {
+    @apply overflow-x-hidden;
+  }
+
+  @font-face {
+    font-family: Poppins;
+    src: url("/fonts/Poppins/Poppins-Regular.ttf");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: Poppins;
+    src: url("/fonts/Poppins/Poppins-Medium.ttf");
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: Poppins;
+    src: url("/fonts/Poppins/Poppins-SemiBold.ttf");
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: Poppins;
+    src: url("/fonts/Poppins/Poppins-Bold.ttf");
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: Roboto;
+    src: url("/fonts/Roboto/Roboto-Regular.ttf");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: Roboto;
+    src: url("/fonts/Roboto/Roboto-Medium.ttf");
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: Roboto;
+    src: url("/fonts/Roboto/Roboto-Bold.ttf");
+    font-weight: 700;
+  }
+}
+
+/* 
+globalFontFace(Poppins, {
+  src: 'url("/fonts/Poppins/Poppins-Regular.ttf")',
+  fontWeight: 400
+});
+globalFontFace(Poppins, {
+  src: 'url("/fonts/Poppins/Poppins-Medium.ttf")',
+  fontWeight: 500
+});
+globalFontFace(Poppins, {
+  src: 'url("/fonts/Poppins/Poppins-SemiBold.ttf")',
+  fontWeight: 600
+});
+globalFontFace(Poppins, {
+  src: 'url("/fonts/Poppins/Poppins-Bold.ttf")',
+  fontWeight: 700
+});
+
+globalFontFace(Roboto, {
+  src: 'url("/fonts/Roboto/Roboto-Regular.ttf")',
+  fontWeight: 400
+});
+globalFontFace(Roboto, {
+  src: 'url("/fonts/Roboto/Roboto-Medium.ttf")',
+  fontWeight: 500
+});
+globalFontFace(Roboto, {
+  src: 'url("/fonts/Roboto/Roboto-Bold.ttf")',
+  fontWeight: 700
+});
+*/
