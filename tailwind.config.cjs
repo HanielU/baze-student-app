@@ -1,97 +1,111 @@
-const plugin = require("tailwindcss/plugin");
+// const plugin = require("tailwindcss/plugin");
 
-/** @type {import('tailwindcss').Config} */
+// exists to share theme variables with vanilla-extract
+const themeVars = {
+  color: {
+    base: {
+      100: "hsl(0, 0%, 100%)",
+      "100-alt": "hsl(240, 6.7%, 97.1%)",
+
+      200: "hsl(0, 0%, 98%)",
+      "200-alt": "hsl(0, 0%, 98%)", // sd
+      // '200-alt': "hsl(206, 54%, 97%)" // sd
+
+      300: "hsl(228, 16.1%, 93.9%)",
+      "300-alt": "hsl(192, 19%, 95%)", // sd
+
+      400: "hsl(228, 16.1%, 93.9%)",
+      "400-alt": "hsl(228, 14%, 93%)", // sd
+
+      content: "hsl(190, 13%, 18%)",
+      "content-alt": "hsl(228, 6%, 15%)", // sd
+      "content-muted": "hsl(207, 4%, 59%)"
+    },
+
+    primary: "hsl(249, 26.5%, 9.6%)",
+    "primary-content": "hsl(0, 0%, 100%)",
+
+    red: "hsl(360, 100%, 90%)",
+    "red-content": "hsl(360, 100%, 20%)",
+
+    blue: "hsl(195, 100%, 90%)",
+    "blue-content": "hsl(195, 100%, 20%)",
+
+    green: "hsl(152, 68%, 90%)",
+    "green-content": "hsl(152, 68%, 20%)",
+
+    brown: "hsl(35, 100%, 90%)",
+    "brown-content": "hsl(35, 100%, 20%)"
+  },
+  font: {
+    primary: "OpenSans",
+    secondary: "Poppins"
+  }
+};
+
+/** @type {import('tailwindcss').Config & {themeVars:typeof themeVars}} */
 module.exports = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
-    fontFamily: {
-      primary: "var(--font-primary)",
-      secondary: "var(--font-secondary)"
-    },
+    fontFamily: themeVars.font,
     extend: {
       maxWidth: ({ theme }) => ({ ...theme("width") }),
       minWidth: ({ theme }) => ({ ...theme("width") }),
-      colors: ({ theme }) => ({
-        base: {
-          100: {
-            DEFAULT: "hsl(240, 33.3%, 98.8%)",
-            alt: "hsl(240, 6.7%, 97.1%)"
-          },
-          200: {
-            DEFAULT: "hsl(210, 12.5%, 96.9%)",
-            alt: "hsl(240, 18.2%, 95.7%)"
-          },
-          300: {
-            DEFAULT: "hsl(228, 16.1%, 93.9%)",
-            alt: "hsl(0, 0%, 92.5%)"
-          },
-          content: {
-            DEFAULT: "hsl(190, 13%, 18%)",
-            alt: "hsl(249, 26.5%, 9.6%)"
-          }
-        },
-        primary: {
-          DEFAULT: "hsl(249, 26.5%, 9.6%)",
-          content: "hsl(0, 0%, 100%)"
-        },
-        red: {
-          DEFAULT: "hsl(360, 100%, 90%)",
-          content: "hsl(360, 100%, 20%)"
-        },
-        blue: {
-          DEFAULT: "hsl(195, 100%, 90%)",
-          content: "hsl(195, 100%, 20%)"
-        },
-        green: {
-          DEFAULT: "hsl(152, 68%, 90%)",
-          content: "hsl(152, 68%, 20%)"
-        },
-        brown: {
-          DEFAULT: "hsl(15, 86%, 90%)",
-          content: "hsl(15, 86%, 20%)"
-        }
-      })
+      colors: themeVars.color,
+      boxShadow: {
+        DEFAULT: "box-shadow: 0px 0px 16px hsla(225, 12.9%, 87.8%, 0.7)"
+      }
     }
   },
-  plugins: []
+  plugins: [],
+
+  // custom export
+  themeVars
 };
 
-function hexToHSL(hex, satAndLight) {
-  // convert hex to rgb
-  let r = 0,
-    g = 0,
-    b = 0;
-  if (hex.length === 4) {
-    r = +("0x" + hex[1] + hex[1]);
-    g = +("0x" + hex[2] + hex[2]);
-    b = +("0x" + hex[3] + hex[3]);
-  } else if (hex.length === 7) {
-    r = +("0x" + hex[1] + hex[2]);
-    g = +("0x" + hex[3] + hex[4]);
-    b = +("0x" + hex[5] + hex[6]);
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const old = {
+  base: {
+    100: {
+      DEFAULT: "hsl(0, 0%, 100%)",
+      alt: "hsl(240, 6.7%, 97.1%)"
+    },
+    200: {
+      DEFAULT: "hsl(0, 0%, 98%)",
+      alt: "hsl(206, 54%, 97%)" // sd
+    },
+    300: {
+      DEFAULT: "hsl(228, 16.1%, 93.9%)",
+      alt: "hsl(192, 19%, 95%)" // sd
+    },
+    400: {
+      DEFAULT: "hsl(228, 16.1%, 93.9%)",
+      alt: "hsl(228, 14%, 93%)" // sd
+    },
+    content: {
+      DEFAULT: "hsl(190, 13%, 18%)",
+      alt: "hsl(228, 6%, 15%)", // sd
+      muted: "hsl(209, 14%, 43%)"
+    }
+  },
+  primary: {
+    DEFAULT: "hsl(249, 26.5%, 9.6%)",
+    content: "hsl(0, 0%, 100%)"
+  },
+  red: {
+    DEFAULT: "hsl(360, 100%, 90%)",
+    content: "hsl(360, 100%, 20%)"
+  },
+  blue: {
+    DEFAULT: "hsl(195, 100%, 90%)",
+    content: "hsl(195, 100%, 20%)"
+  },
+  green: {
+    DEFAULT: "hsl(152, 68%, 90%)",
+    content: "hsl(152, 68%, 20%)"
+  },
+  brown: {
+    DEFAULT: "hsl(35, 100%, 90%)",
+    content: "hsl(35, 100%, 20%)"
   }
-
-  // then to HSL
-  r /= 255;
-  g /= 255;
-  b /= 255;
-  const cmin = Math.min(r, g, b);
-  const cmax = Math.max(r, g, b);
-  const delta = cmax - cmin;
-  let h = 0;
-  let s = 0;
-  let l = 0;
-
-  if (delta === 0) h = 0;
-  else if (cmax === r) h = ((g - b) / delta) % 6;
-  else if (cmax === g) h = (b - r) / delta + 2;
-  else h = (r - g) / delta + 4;
-  h = Math.round(h * 60);
-  if (h < 0) h += 360;
-  l = (cmax + cmin) / 2;
-  s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
-  s = +(s * 100).toFixed(1);
-  l = +(l * 100).toFixed(1);
-
-  return `hsl(${h}, ${satAndLight?.s || s}%, ${satAndLight?.l || l}%)`;
-}
+};

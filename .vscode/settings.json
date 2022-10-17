@@ -5,6 +5,11 @@
   "explorer.fileNesting.patterns": {
     "*.svelte": "${capture}.css.ts"
   },
+  "colorize.colorized_colors": [
+    "HEXA",
+    "HSL",
+    "RGB"
+  ],
   "colorize.languages": [
     "css",
     "sass",

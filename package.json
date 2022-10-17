@@ -17,6 +17,7 @@
     "@sveltejs/adapter-static": "^1.0.0-next.44",
     "@sveltejs/kit": "^1.0.0-next.512",
     "@tauri-apps/cli": "^1.1.1",
+    "@types/randomcolor": "^0.5.6",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "@vanilla-extract/vite-plugin": "^3.6.1",
@@ -49,6 +50,9 @@
     "@capacitor/status-bar": "^4.0.1",
     "@vanilla-extract/css": "^1.9.1",
     "@vanilla-extract/recipes": "^0.2.5",
-    "clsx": "^1.2.1"
+    "@vanilla-extract/sprinkles": "^1.5.0",
+    "chart.js": "^3.9.1",
+    "clsx": "^1.2.1",
+    "randomcolor": "^0.6.2"
   }
 }

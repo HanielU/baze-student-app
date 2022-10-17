@@ -943,6 +943,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/randomcolor@npm:^0.5.6":
+  version: 0.5.6
+  resolution: "@types/randomcolor@npm:0.5.6"
+  checksum: b82fec1fc4d74fa9d777ea694cbe9f2b9d275135a6e97905d18d7b8624c92b41e45aec1b17ede43e37db103a1d63c8b0cb24d8762e768c776c3aefbf4ed6cf8d
+  languageName: node
+  linkType: hard
+
 "@types/sass@npm:^1.16.0":
   version: 1.43.1
   resolution: "@types/sass@npm:1.43.1"
@@ -1136,6 +1143,15 @@ __metadata:
   peerDependencies:
     "@vanilla-extract/css": ^1.0.0
   checksum: 474ab445f4166bded294d5f77e02ba9b10ec6effe08364c03396e2802848d904a2a1dd9b20466405ebda93449c5a634c2fe99cd1d12888b0f84accf4d2d72666
+  languageName: node
+  linkType: hard
+
+"@vanilla-extract/sprinkles@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "@vanilla-extract/sprinkles@npm:1.5.0"
+  peerDependencies:
+    "@vanilla-extract/css": ^1.0.0
+  checksum: 522b96afe856a72d76072ab41453edc35117772a6ac829c8a5ad09cddd69152e152b1cbda0b4344d50dbde59d0effa39301beb7acf319ef88f485966c89c80fd
   languageName: node
   linkType: hard
 
@@ -1428,12 +1444,15 @@ __metadata:
     "@sveltejs/adapter-static": ^1.0.0-next.44
     "@sveltejs/kit": ^1.0.0-next.512
     "@tauri-apps/cli": ^1.1.1
+    "@types/randomcolor": ^0.5.6
     "@typescript-eslint/eslint-plugin": ^5.40.0
     "@typescript-eslint/parser": ^5.40.0
     "@vanilla-extract/css": ^1.9.1
     "@vanilla-extract/recipes": ^0.2.5
+    "@vanilla-extract/sprinkles": ^1.5.0
     "@vanilla-extract/vite-plugin": ^3.6.1
     autoprefixer: ^10.4.12
+    chart.js: ^3.9.1
     clsx: ^1.2.1
     eslint: ^8.25.0
     eslint-config-prettier: ^8.5.0
@@ -1442,6 +1461,7 @@ __metadata:
     prettier: ^2.7.1
     prettier-plugin-svelte: ^2.8.0
     prettier-plugin-tailwindcss: ^0.1.13
+    randomcolor: ^0.6.2
     svelte: ^3.51.0
     svelte-check: ^2.9.2
     svelte-preprocess: ^4.10.7
@@ -1607,6 +1627,13 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: fe75c9d5c76a7a98d45495b91b2172fa3b7a09e0cc9370e5c8feb1c567b85c4288e2b3fded7cfdd7359ac28d6b3844feb8b82b8686842e93d23c827c417e83fc
+  languageName: node
+  linkType: hard
+
+"chart.js@npm:^3.9.1":
+  version: 3.9.1
+  resolution: "chart.js@npm:3.9.1"
+  checksum: 9ab0c0ac01215af0b3f020f2e313030fd6e347b48ed17d5484ee9c4e8ead45e78ae71bea16c397621c386b409ce0b14bf17f9f6c2492cd15b56c0f433efdfff6
   languageName: node
   linkType: hard
 
@@ -4017,6 +4044,13 @@ __metadata:
   version: 5.1.1
   resolution: "quick-lru@npm:5.1.1"
   checksum: a516faa25574be7947969883e6068dbe4aa19e8ef8e8e0fd96cddd6d36485e9106d85c0041a27153286b0770b381328f4072aa40d3b18a19f5f7d2b78b94b5ed
+  languageName: node
+  linkType: hard
+
+"randomcolor@npm:^0.6.2":
+  version: 0.6.2
+  resolution: "randomcolor@npm:0.6.2"
+  checksum: 539345c0289f7c52ffd8486e61231e19ccc40b1c4ab9c15594f20a2773b71a9317e0cc8b756160fc8a678ace9ed1e96a8ac90346b2c34c64dfd5acad91f9a73d
   languageName: node
   linkType: hard
 
