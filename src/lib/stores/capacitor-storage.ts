@@ -9,7 +9,7 @@ export function capacitorStorageStore<T>(key: string, initial: T): WritableCapac
   const {
     set: setStore,
     update: updateStore,
-    subscribe
+    subscribe,
   } = writable(initial, () => {
     if (!client) return;
     getAndSetFromCapacitorStorage();

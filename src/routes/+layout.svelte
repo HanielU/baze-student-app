@@ -1,6 +1,8 @@
 <script lang="ts">
-  import "$styles/theme.css";
-  import "../app.css";
+  import "@unocss/reset/tailwind.css";
+  import "$styles/css/app.css";
+  import "uno.css";
+
   import Header from "./navigation/Header.svelte";
   import Sidebar from "./navigation/Sidebar.svelte";
   import type { LocalNotificationsPlugin } from "@capacitor/local-notifications";
@@ -8,9 +10,10 @@
   import { Device } from "@capacitor/device";
   import { hslToHex } from "$lib/utils";
   import { navigationStack } from "$lib/stores";
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import { sidebarOpen } from "$lib/stores";
-  import { themeVars } from "$styles/theme.css";
+  import { themeVars } from "$styles/vanilla/theme.css";
+  import Link from "./components/Link.svelte";
 
   let LocalNotifications: LocalNotificationsPlugin | undefined;
   let notificationsPermission: PermissionState | undefined;
@@ -80,12 +83,11 @@
       StatusBar.setStyle({ style: Style.Light });
 
       App.addListener("backButton", () => {
-        if ($navigationStack > 0) {
+        if ($navigationStack !== 0) {
           $navigationStack--; // indicates the supposed new of window history length
           window.history.back();
           return;
         }
-
         App.exitApp();
       });
 
@@ -104,19 +106,19 @@
               {
                 id: "reply",
                 title: "reply",
-                input: true
+                input: true,
               },
               {
                 id: "yes",
-                title: "yes!"
+                title: "yes!",
               },
               {
                 id: "no",
-                title: "no."
-              }
-            ]
-          }
-        ]
+                title: "no.",
+              },
+            ],
+          },
+        ],
       });
 
       LocalNotifications.addListener("localNotificationActionPerformed", notificationAction => {
@@ -128,25 +130,31 @@
   });
 </script>
 
-<svelte:window
-  on:mousedown={startDrag}
-  on:mousemove={handleDrag}
-  on:mouseup={stopDrag}
-  on:touchstart={startDrag}
-  on:touchmove={handleDrag}
-  on:touchend={stopDrag}
-/>
+<svelte:window on:touchstart={startDrag} on:touchmove={handleDrag} on:touchend={stopDrag} />
 
 <svelte:head>
   <title>Baze University Student Portal</title>
 </svelte:head>
 
-<div id="app" class="relative h-screen w-full">
+<div id="app" class="relative h-screen w-full pb-20 overflow-x-hidden">
   <Sidebar />
 
-  <div class="relative h-full">
+  <div class="relative h-full overflow-y-auto overflow-x-hidden">
     <Header />
+
+    <!-- :highlight: Make sure to remove -->
+    <!-- {$navigationStack} -->
 
     <slot />
   </div>
 </div>
+
+<!-- footer nav -->
+<footer class="bg-base-100 fixed bottom-0 left-0 w-full">
+  <nav class="flex-between w-full p-5">
+    <!-- icon-wrapper -->
+    <div flex-center gap-1>
+      Plays <Link to="/sandbox" class="i-ri-play-circle-line text-base-content text-3xl" />
+    </div>
+  </nav>
+</footer>

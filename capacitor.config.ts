@@ -10,19 +10,19 @@ const config: CapacitorConfig = {
   server: {
     // url: "http://192.168.0.182:5173", // hynetflex 5ghz
     // url: "http://192.168.0.59:5173", // hynetflex 5G 2.4ghz
-    url: "http://192.168.104.233:5173", // redmi hotspot
-    cleartext: true
+    url: "http://192.168.170.233:5173", // redmi hotspot
+    cleartext: true,
   },
 
   plugins: {
     LocalNotifications: {
       // smallIcon: "ic_stat_icon_config_sample",
-      iconColor: "#488AFF"
-    }
+      iconColor: "#488AFF",
+    },
     /* PushNotifications: {
       presentationOptions: ["badge", "sound", "alert"]
     } */
-  }
+  },
 };
 
 export default config;

@@ -1,4 +1,4 @@
-import { theme } from "$styles/theme.css";
+import { theme } from "$styles/vanilla/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const menuBtn = style({
@@ -15,21 +15,21 @@ export const menuBtn = style({
       left: 0,
       height: "inherit",
       width: "inherit",
-      background: theme.color.base.content.alt,
+      background: theme.color.base["content-alt"],
       borderRadius: 2,
-      transition: "transform 400ms ease"
+      transition: "transform 400ms ease",
     },
     "&::before": {
-      transform: "translateY(-3px)"
+      transform: "translateY(-3px)",
     },
     "&::after": {
-      transform: "translateY(3px)"
+      transform: "translateY(3px)",
     },
     "&.open::before": {
-      transform: "rotate(-45deg)"
+      transform: "rotate(-45deg)",
     },
     "&.open::after": {
-      transform: "rotate(45deg)"
-    }
-  }
+      transform: "rotate(45deg)",
+    },
+  },
 });

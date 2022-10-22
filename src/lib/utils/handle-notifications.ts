@@ -18,9 +18,9 @@ export const scheduleBasic =
         {
           title: "This is where the title goes.",
           body: "This is where the content goes.",
-          id: 1
-        }
-      ]
+          id: 1,
+        },
+      ],
     });
   };
 
@@ -38,13 +38,13 @@ export const scheduleMultiple =
         {
           title: "1st",
           body: "This is the first notification.",
-          id: 1
+          id: 1,
         },
         {
           title: "2nd",
           body: "This is the second notification.",
-          id: 2
-        }
-      ]
+          id: 2,
+        },
+      ],
     });
   };

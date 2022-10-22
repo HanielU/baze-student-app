@@ -6,12 +6,10 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<nav
-  class="sticky top-0 mb-10 flex w-full items-center justify-between border-b border-solid border-b-primary/20 bg-base-100 px-5 py-4"
->
+<nav border-b="~ primary/20" p="x-5 y-4" class="bg-base-100 flex-between sticky top-0 mb-10 w-full">
   <!-- burger btn -->
   <div
-    class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-md bg-white shadow-sm"
+    class="flex-center bg-base-100 h-12 w-12 cursor-pointer rounded-md shadow-sm"
     on:click={() => ($sidebarOpen = !$sidebarOpen)}
   >
     <div class={menuBtn} class:open={$sidebarOpen} />

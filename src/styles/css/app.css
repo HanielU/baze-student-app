@@ -1,0 +1,21 @@
+@import "./fonts.css";
+
+*,
+*::before,
+*::after {
+  border-color: theme("colors.primary");
+}
+
+html,
+body {
+  overflow-x: hidden !important;
+}
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  font-family: theme("fontFamily.primary");
+  color: theme("colors.base.content-alt");
+  background-color: theme("colors.base.200");
+  position: relative;
+}
