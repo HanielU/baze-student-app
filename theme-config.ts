@@ -5,25 +5,25 @@ export const themeVars = {
   color: {
     base: {
       100: "hsl(0, 0%, 100%)",
-      "100-alt": "hsl(240, 6.7%, 97.1%)",
+      "100Alt": "hsl(240, 6.7%, 97.1%)",
 
       200: "hsl(0, 0%, 97%)",
-      "200-alt": "hsl(0, 0%, 98%)", // sd
-      // '200-alt': "hsl(206, 54%, 97%)" // sd
+      "200Alt": "hsl(0, 0%, 98%)", // sd
+      // '200Alt': "hsl(206, 54%, 97%)" // sd
 
       300: "hsl(228, 16.1%, 93.9%)",
-      "300-alt": "hsl(192, 19%, 95%)", // sd
+      "300Alt": "hsl(192, 19%, 95%)", // sd
 
       400: "hsl(228, 16.1%, 93.9%)",
-      "400-alt": "hsl(228, 14%, 93%)", // sd
+      "400Alt": "hsl(228, 14%, 93%)", // sd
 
       content: "hsl(190, 13%, 18%)",
-      "content-alt": "hsl(228, 6%, 15%)", // sd
-      "content-muted": "hsl(207, 4%, 59%)",
+      contentAlt: "hsl(228, 6%, 15%)", // sd
+      contentMuted: "hsl(207, 4%, 59%)",
     },
 
     primary: "hsl(249, 26.5%, 9.6%)",
-    "primary-content": "hsl(0, 0%, 100%)",
+    primaryContent: "hsl(0, 0%, 100%)",
 
     red: "hsl(360, 100%, 90%)",
     redContent: "hsl(360, 100%, 20%)",

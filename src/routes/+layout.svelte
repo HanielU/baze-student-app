@@ -151,9 +151,9 @@
 
 <!-- footer nav -->
 <footer class="bg-base-100 fixed bottom-0 left-0 w-full">
-  <nav class="flex-between w-full p-5">
+  <nav class="flex-u-between w-full p-5">
     <!-- icon-wrapper -->
-    <div flex-center gap-1>
+    <div flex-u-center gap-1>
       Plays <Link to="/sandbox" class="i-ri-play-circle-line text-base-content text-3xl" />
     </div>
   </nav>

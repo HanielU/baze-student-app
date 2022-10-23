@@ -37,11 +37,17 @@ export default defineConfig({
   rules: [],
 
   // https://github.com/unocss/unocss#shortcuts
-  shortcuts: {
-    "page-heading": "mb-10 px-5 font-secondary text-3xl font-semibold tracking-tight",
-    "flex-between": "flex justify-between items-center",
-    "flex-center": "flex justify-center items-center",
-  },
+  shortcuts: [
+    {
+      "page-heading": "mb-10 px-5 font-secondary text-3xl font-semibold tracking-tight",
+    },
+    [
+      // flex-u stands for flex-utility
+      // to avoid mixups with default flex utilities like flex-wrap
+      /^flex-u-([a-z]+)-?([a-z]*)$/,
+      ([, justify, align]) => `flex justify-${justify} items-${align || "center"}`,
+    ],
+  ],
 
   // https://github.com/unocss/unocss#using-presets
   presets: [

@@ -15,7 +15,7 @@ export const menuBtn = style({
       left: 0,
       height: "inherit",
       width: "inherit",
-      background: theme.color.base["content-alt"],
+      background: theme.color.base.contentAlt,
       borderRadius: 2,
       transition: "transform 400ms ease",
     },

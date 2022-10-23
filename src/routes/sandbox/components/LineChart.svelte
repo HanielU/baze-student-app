@@ -84,7 +84,7 @@
   ];
 </script>
 
-<div class="flex-center h-[calc(100%-100px)] w-full">
+<div class="flex-u-center h-[calc(100%-100px)] w-full">
   <div class="card relative h-400px w-95% px-1 rounded-2.5">
     <!-- Custom information -->
     <div class="mb-20 p-5">

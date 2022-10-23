@@ -6,6 +6,9 @@ export const details = [
   {
     label: "Student Names",
     value: "Haniel Efe-Tobore Ubogu",
+    // value: "Abdulraman Abdulbasit Muhhammad",
+    // value: "Jemima Aimebienomo John",
+    // value: "Tsavsar Mchiaga Shater",
   },
   {
     label: "Current Program",
