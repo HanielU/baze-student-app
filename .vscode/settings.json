@@ -4,7 +4,6 @@
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "*.svelte": "${capture}.css.ts",
-    "*.svelte": "${capture}.css"
   },
   "colorize.colorized_colors": [
     "HEXA",

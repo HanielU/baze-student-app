@@ -7,17 +7,18 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <nav
-  border-b="~ primary/20"
-  p="x-5 y-4"
-  class="bg-base-100 flex-u-between sticky top-0 mb-10 w-full"
+  border-b="~ primary/15"
+  p="x-5 y-3"
+  class="bg-base-100 flex-u-between sticky top-0 mb-10 w-full z-20"
 >
   <!-- burger btn -->
   <div
-    class="flex-u-center bg-base-100 h-12 w-12 cursor-pointer rounded-md shadow-sm"
+    class="flex-u-center bg-base-100 square-12 cursor-pointer rounded-md shadow-sm"
     on:click={() => ($sidebarOpen = !$sidebarOpen)}
   >
     <div class={menuBtn} class:open={$sidebarOpen} />
   </div>
 
-  <h3 class="text-base">{studentName}</h3>
+  <h3 class="text-sm uppercase">{studentName}</h3>
+  <!-- <h3 class="text-sm">{window.innerWidth}</h3> -->
 </nav>

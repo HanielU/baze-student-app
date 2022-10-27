@@ -4,11 +4,11 @@ type ModuleDetails = {
 };
 export const moduleDetails: ModuleDetails[] = [
   {
-    label: "Total Registered",
+    label: "Registered",
     value: 55,
   },
   {
-    label: "Total Passed",
+    label: "Passed",
     value: 54,
   },
   {

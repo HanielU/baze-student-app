@@ -32,7 +32,7 @@ export const themeVars = {
     blueContent: "hsl(195, 100%, 20%)",
 
     green: "hsl(152, 68%, 90%)",
-    greenContent: "hsl(152, 68%, 20%)",
+    greenContent: "hsl(158, 74%, 38%)",
 
     brown: "hsl(35, 100%, 90%)",
     brownContent: "hsl(35, 100%, 20%)",

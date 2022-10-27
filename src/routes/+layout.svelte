@@ -3,20 +3,23 @@
   import "$styles/css/app.css";
   import "uno.css";
 
-  import Header from "./navigation/Header.svelte";
-  import Sidebar from "./navigation/Sidebar.svelte";
+  import Header from "./components/navigation/Header.svelte";
+  import Sidebar from "./components/navigation/Sidebar.svelte";
+  import Footer from "./components/navigation/Footer.svelte";
   import type { LocalNotificationsPlugin } from "@capacitor/local-notifications";
   import type { PermissionState } from "@capacitor/core";
   import { Device } from "@capacitor/device";
   import { hslToHex } from "$lib/utils";
   import { navigationStack } from "$lib/stores";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
   import { sidebarOpen } from "$lib/stores";
   import { themeVars } from "$styles/vanilla/theme.css";
-  import Link from "./components/Link.svelte";
+  import { page } from "$app/stores";
 
   let LocalNotifications: LocalNotificationsPlugin | undefined;
   let notificationsPermission: PermissionState | undefined;
+
+  let footerHeight: number;
 
   let dragging = false;
   let startX = 0;
@@ -83,12 +86,12 @@
       StatusBar.setStyle({ style: Style.Light });
 
       App.addListener("backButton", () => {
-        if ($navigationStack !== 0) {
+        if ($page.url.pathname === "/") {
+          App.exitApp();
+        } else if ($navigationStack !== 0) {
           $navigationStack--; // indicates the supposed new of window history length
           window.history.back();
-          return;
         }
-        App.exitApp();
       });
 
       ({ display: notificationsPermission } = await LocalNotifications.checkPermissions());
@@ -136,25 +139,14 @@
   <title>Baze University Student Portal</title>
 </svelte:head>
 
-<div id="app" class="relative h-screen w-full pb-20 overflow-x-hidden">
+<div id="app" class="relative h-screen w-full overflow-x-hidden" style:--footerH="{footerHeight}px">
   <Sidebar />
 
-  <div class="relative h-full overflow-y-auto overflow-x-hidden">
+  <div class="relative h-full overflow-y-auto overflow-x-hidden pb-[var(--footerH)]">
     <Header />
-
-    <!-- :highlight: Make sure to remove -->
-    <!-- {$navigationStack} -->
 
     <slot />
   </div>
 </div>
 
-<!-- footer nav -->
-<footer class="bg-base-100 fixed bottom-0 left-0 w-full">
-  <nav class="flex-u-between w-full p-5">
-    <!-- icon-wrapper -->
-    <div flex-u-center gap-1>
-      Plays <Link to="/sandbox" class="i-ri-play-circle-line text-base-content text-3xl" />
-    </div>
-  </nav>
-</footer>
+<Footer bind:footerHeight />

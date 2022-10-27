@@ -13,7 +13,13 @@
 <un:mb-7>
   <h3 class={sectionHeading}>Module Details</h3>
 
-  <div class="illegal-scroll flex max-w-full gap-5 overflow-x-scroll" p="x-5 b-5">
+  <div
+    class="illegal-scroll flex max-w-full gap-5 overflow-x-auto
+    scrollbar:h-5px
+    scrollbar-track:(rounded-2.5 bg-base-content/4)
+    scrollbar-thumb:(rounded-2.5 bg-base-content-muted/20)"
+    p="b-5 x-5"
+  >
     {#each moduleDetails as { label, value }}
       <ModuleDetailCard {label} {value} />
     {/each}
@@ -34,9 +40,7 @@
   <h3 class={sectionHeading}>Student Performance</h3>
 
   <un:px-5>
-    <!-- {#await import("./components/PerformanceGraph.svelte") then { default: PerformanceGraph }} -->
     <PerformanceGraph />
-    <!-- {/await} -->
   </un:px-5>
 </un:pb-10>
 

@@ -56,6 +56,15 @@ export function hslToHex(hsl: string) {
   return `#${f(0)}${f(8)}${f(4)}`;
 }
 
+// function to convert hsl to hsla
+export function hslToHsla(hsl: string, a: number) {
+  const p = hsl.split(", ");
+  const h = p[0].split("(")[1];
+  const s = p[1].split("%")[0];
+  const l = p[2].split("%")[0];
+  return `hsla(${h}, ${s}%, ${l}%, ${a})`;
+}
+
 export const hexToRGBA = (hexCode: string, opacity = 1) => {
   let hex = hexCode.replace("#", "");
 

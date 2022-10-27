@@ -3,13 +3,19 @@
 
   let className = "";
   let to: string;
-  let prefetch = false;
+  let prefetch = true;
   export { className as class, to, prefetch };
 </script>
 
+<!-- 
+  @component
+  
+  Prefetches links by default  
+ -->
+
 <a
   href={to}
-  data-sveltekit-prefetch={prefetch}
+  data-sveltekit-prefetch={prefetch ? "" : "off"}
   class={className}
   on:click={() => $navigationStack++}
 >
