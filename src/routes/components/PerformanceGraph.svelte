@@ -11,7 +11,7 @@
     type ChartTypeRegistry,
     type DefaultDataPoint,
   } from "chart.js";
-  import { fontString } from "chart.js/helpers";
+  // import { fontString } from "chart.js/helpers";
   import { progression } from "$lib/dummydata/progression";
   import { themeVars } from "$styles/vanilla/theme.css";
   import { hslToHsla } from "$lib/utils";
@@ -40,9 +40,9 @@
         borderSkipped: false,
         // hoverBackgroundColor: themeVars.color.primary,
         hoverBackgroundColor: ctx => {
-          if (ctx.raw < 2) return "hsla(360, 50%, 50%, 1)";
-          else if (ctx.raw < 3) return hslToHsla(themeVars.color.brownContent, 0.9);
-          else if (ctx.raw <= 4) return hslToHsla(themeVars.color.greenContent, 0.9);
+          if (ctx.parsed.y < 2) return "hsla(360, 50%, 50%, 1)";
+          else if (ctx.parsed.y < 3) return hslToHsla(themeVars.color.brownContent, 0.9);
+          else if (ctx.parsed.y <= 4) return hslToHsla(themeVars.color.greenContent, 0.9);
         },
         barThickness,
       },
@@ -76,11 +76,11 @@
           const chartInstance = animation.chart;
           const ctx = chartInstance.ctx;
 
-          ctx.font = fontString(
+          /* ctx.font = fontString(
             ChartJS.defaults.font.size!,
             ChartJS.defaults.font.style!,
             ChartJS.defaults.font.family!
-          );
+          ); */
 
           ctx.textAlign = "center";
           ctx.textBaseline = "bottom";
@@ -110,34 +110,33 @@
 
   function setupChart(ctx: HTMLCanvasElement) {
     const registerables = [BarController, Tooltip, LinearScale, CategoryScale, BarElement];
-    ChartJS.register(...registerables);
+    ChartJS.register(registerables);
 
-    const lengthOfProgression = data.labels!.length;
+    const lengthOfProgression = data.labels?.length as number;
     const sideMarginProbably = 20;
     const chartWidth =
       barThickness * lengthOfProgression + sideMarginProbably * lengthOfProgression;
 
-    const chart = new ChartJS(
-      ctx,
-      config(() => {
-        const parentDiv = ctx.parentElement!;
+    function calculateChartWidth() {
+      const parentDiv = ctx.parentElement as HTMLDivElement;
 
-        if (chartWidth > parentDiv.clientWidth) {
-          const chartToParentDifference = chartWidth - parentDiv.clientWidth;
-          // increases the scrollable width of the chart
-          parentDiv.style.width = `${
-            parentDiv.clientWidth +
-            // found a great ratio, wouldn't touch if I were you
-            (chartToParentDifference < 150 ? 20 : barThickness) * lengthOfProgression
-          }px`;
-        }
-      })
-    );
+      if (chartWidth > parentDiv.clientWidth) {
+        const chartToParentDifference = chartWidth - parentDiv.clientWidth;
+        // increases the scrollable width of the chart
+        parentDiv.style.width = `${
+          parentDiv.clientWidth +
+          // found a great ratio, wouldn't touch if I were you
+          (chartToParentDifference < 150 ? 20 : barThickness) * lengthOfProgression
+        }px`;
+      }
+    }
+
+    const chart = new ChartJS(ctx, config(calculateChartWidth));
 
     return {
       destroy() {
         chart.destroy();
-        ChartJS.unregister(...registerables);
+        ChartJS.unregister(registerables);
       },
     };
   }
@@ -166,7 +165,7 @@
   <!-- Chart -->
   <div
     class="h-38vh min-h-350px max-h-500px w-full overflow-x-scroll md:(w-600px)
-    scrollbar:h-2.5
+    scrollbar:h-1.5
     scrollbar-track:(rounded-2.5 bg-base-content/4)
     scrollbar-thumb:(rounded-2.5 bg-base-content-muted/60)"
     p="t-5 b-6 x-5"

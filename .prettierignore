@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-# /build
+/build
 /.svelte-kit
 /package
 .env
@@ -10,6 +10,13 @@ node_modules
 /src-tauri
 /.vscode
 /android
+
+static/fonts
+/unused_fonts
+
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml

@@ -8,6 +8,13 @@ node_modules
 !.env.example
 /android
 
+static/fonts
+/unused_fonts
+
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml
 package-lock.json
