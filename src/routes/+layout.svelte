@@ -32,7 +32,9 @@
       const { App } = await import("@capacitor/app");
       ({ LocalNotifications } = await import("@capacitor/local-notifications"));
 
-      StatusBar.setBackgroundColor({ color: hslToHex(themeVars.color.base[100]) });
+      StatusBar.setBackgroundColor({
+        color: hslToHex(themeVars.color.base[100]),
+      });
       StatusBar.setStyle({ style: Style.Light });
 
       App.addListener("backButton", () => {
@@ -44,7 +46,8 @@
         }
       });
 
-      ({ display: notificationsPermission } = await LocalNotifications.checkPermissions());
+      ({ display: notificationsPermission } =
+        await LocalNotifications.checkPermissions());
 
       if (notificationsPermission == "denied") {
         const { display } = await LocalNotifications.requestPermissions();
@@ -74,11 +77,17 @@
         ],
       });
 
-      LocalNotifications.addListener("localNotificationActionPerformed", notificationAction => {
-        if (notificationAction.notification.actionTypeId == "reply") {
-          console.log("on reply:", notificationAction.inputValue || notificationAction.actionId);
+      LocalNotifications.addListener(
+        "localNotificationActionPerformed",
+        notificationAction => {
+          if (notificationAction.notification.actionTypeId == "reply") {
+            console.log(
+              "on reply:",
+              notificationAction.inputValue || notificationAction.actionId
+            );
+          }
         }
-      });
+      );
     }
   });
 </script>
@@ -89,10 +98,16 @@
 
 <SwipeInteraction />
 
-<div id="app" class="relative h-screen w-full overflow-x-hidden" style:--footerH="{footerHeight}px">
+<div
+  id="app"
+  class="relative h-screen w-full overflow-x-hidden"
+  style:--footerH="{footerHeight}px"
+>
   <Sidebar />
 
-  <div class="relative h-full overflow-y-auto overflow-x-hidden pb-[var(--footerH)]">
+  <div
+    class="relative h-full overflow-y-auto overflow-x-hidden pb-[var(--footerH)]"
+  >
     <Header />
 
     <slot />

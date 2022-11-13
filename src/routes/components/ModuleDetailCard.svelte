@@ -6,7 +6,10 @@
 </script>
 
 <!-- card -->
-<div border="~ base-content/10" class="illegal-scroll min-w-46 bg-base-100 rounded-xl p-5 shadow">
+<div
+  border="~ base-content/10"
+  class="illegal-scroll min-w-46 bg-base-100 rounded-xl p-5 shadow"
+>
   <h4 class="text-sm">{label}</h4>
   <h2 class="text-2xl font-bold">{value}</h2>
 </div>

@@ -42,7 +42,7 @@
         fill: "i-ri-notification-3-fill !text-lg",
         line: "i-ri-notification-3-line text-base-content",
         wrapper:
-          "after:(content-empty absolute top-2px right-2px square-2 bg-orange-6 rounded-full)",
+          "after:(content-empty absolute top-2px right-2px square-2 bg-orange-v-400 rounded-full)",
       },
     },
   ];
@@ -50,7 +50,8 @@
   // :fix: linkWidth is still incorrect on first render most times
   function getLinkWidth(ctx: HTMLDivElement) {
     const linkWidth = ctx.clientWidth;
-    const linkWidthWithoutTextSpan = linkWidth - ctx.querySelector("span")!.clientWidth;
+    const linkWidthWithoutTextSpan =
+      linkWidth - ctx.querySelector("span")!.clientWidth;
 
     ctx.style.setProperty("--linkWidth", `${linkWidth}px`);
     ctx.style.setProperty("--linkWOTS", `${linkWidthWithoutTextSpan}px`); // linkWOTS - link width without text span
@@ -63,7 +64,10 @@
     function update() {
       const textSpan = ctx.querySelector("span")!;
       const textSpanWidth = textSpan.clientWidth;
-      ctx.style.setProperty("--linkWidth", `${linkWidthWithoutTextSpan + textSpanWidth}px`);
+      ctx.style.setProperty(
+        "--linkWidth",
+        `${linkWidthWithoutTextSpan + textSpanWidth}px`
+      );
     }
     setTimeout(update, 800);
   }
@@ -75,7 +79,7 @@
   bind:clientHeight={footerHeight}
 >
   <nav
-    class="bg-base-100 flex-u-between mx-auto border-(1 primary/10) shadow-(2xl base-content/20) rounded-5"
+    class="bg-base-100 s-flex-between mx-auto border-(1 primary/10) shadow-(2xl base-content/20) rounded-5"
   >
     {#each footerLinks as { path, name, classes }}
       {@const currentPathActive = $page.url.pathname === path}
@@ -84,12 +88,16 @@
         <div
           use:getLinkWidth
           class={clsx(
-            "transition-all duration-250 px-4 py-3 flex-u-start-center text-primary-content rounded-10",
-            !currentPathActive ? "w-[var(--linkWOTS)]" : "bg-primary gap-1 w-[var(--linkWidth)]"
+            "transition-all duration-250 px-4 py-3 s-flex-start-center text-primary-content rounded-10",
+            currentPathActive
+              ? "bg-primary gap-1 w-[var(--linkWidth)]"
+              : "w-[var(--linkWOTS)]"
           )}
         >
           <!-- icon wrapper -->
-          <div class={clsx("flex relative", !currentPathActive && classes.wrapper)}>
+          <div
+            class={clsx("flex relative", !currentPathActive && classes.wrapper)}
+          >
             <div
               class={clsx(
                 "transition-all duration-250 text-xl relative",

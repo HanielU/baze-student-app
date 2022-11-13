@@ -5,5 +5,8 @@ declare global {
     interface HTMLAttributes<T> extends AttributifyAttributes<T> {
       [key: string]: unknown;
     }
+    // interface HTMLProps<T> extends AttributifyAttributes<T> {
+    //   [key: string]: unknown;
+    // }
   }
 }

@@ -10,7 +10,7 @@
 <h1 class="page-heading">Dashboard</h1>
 
 <!-- Module Details -->
-<un:mb-7>
+<section class="mb-7">
   <h3 class={sectionHeading}>Module Details</h3>
 
   <div
@@ -24,24 +24,24 @@
       <ModuleDetailCard {label} {value} />
     {/each}
   </div>
-</un:mb-7>
+</section>
 
 <!-- Student Details -->
-<un:mb-12>
+<section class="mb-12">
   <h3 class={sectionHeading}>Student Details</h3>
 
-  <un:px-5>
+  <section class="px-5">
     <StudentDetails />
-  </un:px-5>
-</un:mb-12>
+  </section>
+</section>
 
 <!-- Student Performance Graph -->
-<un:pb-10>
+<section class="pb-10">
   <h3 class={sectionHeading}>Student Performance</h3>
 
-  <un:px-5>
+  <section class="px-5">
     <PerformanceGraph />
-  </un:px-5>
-</un:pb-10>
+  </section>
+</section>
 
 <!-- :highlight: Using Pallete 8 -->

@@ -3,7 +3,7 @@
 *,
 *::before,
 *::after {
-  border-color: theme("colors.primary");
+  border-color: theme("colors.primary.DEFAULT");
 }
 
 html,
@@ -15,7 +15,7 @@ body {
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   font-family: theme("fontFamily.primary");
-  color: theme("colors.base.contentAlt");
-  background-color: theme("colors.base.200");
+  color: theme("colors.neutral.900");
+  background-color: theme("colors.neutral.50");
   position: relative;
 }

@@ -17,7 +17,7 @@ import {
 // https://github.com/unocss/unocss/tree/main/packages/transformer-directives
 // https://github.com/unocss/unocss/tree/main/packages/transformer-variant-group
 
-import { themeVars } from "./theme-config";
+import { themeVars, themeVars2, themeVars3 } from "./theme-config";
 
 // https://github.com/unocss/unocss#configurations
 export default defineConfig({
@@ -27,7 +27,11 @@ export default defineConfig({
   // https://github.com/unocss/unocss#extend-theme
   theme: {
     fontFamily: themeVars.font,
-    colors: themeVars.color,
+    colors: {
+      ...themeVars.color,
+      ...themeVars2,
+      ...themeVars3,
+    },
     boxShadow: {
       DEFAULT: "0px 4px 16px hsla(225, 12.9%, 87.8%, 0.3);",
     },
@@ -39,13 +43,15 @@ export default defineConfig({
   // https://github.com/unocss/unocss#shortcuts
   shortcuts: [
     {
-      "page-heading": "mb-8 px-5 font-(secondary semibold) text-3xl tracking-tight",
+      "page-heading":
+        "mb-8 px-5 font-(secondary semibold) text-3xl tracking-tight",
     },
     [
-      // flex-u stands for flex-utility
+      // s-flex stands for flex-shortcut
       // to avoid mixups with default flex utilities like flex-wrap
-      /^flex-u-([a-z]+)-?([a-z]*)$/,
-      ([, justify, align]) => `flex justify-${justify} items-${align || "center"}`,
+      /^s-flex-([a-z]+)-?([a-z]*)$/,
+      ([, justify, align]) =>
+        `flex justify-${justify} items-${align || "center"}`,
     ],
     // use when width and height values are the same
     [/^square-(.*)$/, ([, v]) => `h-${v} w-${v}`],
@@ -53,7 +59,11 @@ export default defineConfig({
 
   variants: [
     matcher => {
-      const [m1, m2, m3] = ["scrollbar:", "scrollbar-track:", "scrollbar-thumb:"];
+      const [m1, m2, m3] = [
+        "scrollbar:",
+        "scrollbar-track:",
+        "scrollbar-thumb:",
+      ];
       let matchedStr = "";
 
       if (matcher.startsWith(m1)) {

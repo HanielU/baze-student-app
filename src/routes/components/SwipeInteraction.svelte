@@ -13,7 +13,9 @@
   let movedYBy = 0;
 
   function getCurrentPos(e: Event) {
-    return e.type.includes("mouse") ? (e as MouseEvent) : (e as TouchEvent)?.touches?.[0];
+    return e.type.includes("mouse")
+      ? (e as MouseEvent)
+      : (e as TouchEvent)?.touches?.[0];
   }
 
   function startDrag(e: MouseEvent | TouchEvent) {
@@ -43,7 +45,12 @@
     // if screen has been swiped through then currentX and currentY
     // will be something other than 0
     if (currentX !== 0 && currentY !== 0) {
-      if (movedXBy >= 80 && movedYBy >= -60 && movedYBy <= 60 && !$sidebarOpen) {
+      if (
+        movedXBy >= 80 &&
+        movedYBy >= -60 &&
+        movedYBy <= 60 &&
+        !$sidebarOpen
+      ) {
         $sidebarOpen = true;
       } else if (movedXBy <= -80 && $sidebarOpen) {
         $sidebarOpen = false;
@@ -54,4 +61,8 @@
   }
 </script>
 
-<svelte:window on:touchstart={startDrag} on:touchmove={handleDrag} on:touchend={stopDrag} />
+<svelte:window
+  on:touchstart={startDrag}
+  on:touchmove={handleDrag}
+  on:touchend={stopDrag}
+/>

@@ -1,7 +1,10 @@
 /** Converts CSS pixel values to rem values */
 export const pxr = (px: number) => `${px * 0.0625}rem`;
 
-export function resolveVars<T extends Record<string, T[keyof T]>, FK extends string>(vars: T) {
+export function resolveVars<
+  T extends Record<string, T[keyof T]>,
+  FK extends string
+>(vars: T) {
   return Object.entries(vars)
     .flatMap(([k, v]) => format<T, FK>([k, v, null]))
     .reduce((prevObj, currObj) => Object.assign(prevObj, currObj));
@@ -9,11 +12,10 @@ export function resolveVars<T extends Record<string, T[keyof T]>, FK extends str
 
 // T = Object
 // FK = FormattedKey
-export function format<T extends Record<string, T[keyof T]>, FK extends string>([
-  key,
-  value,
-  prevK,
-]: [string, T[keyof T], string | null]) {
+export function format<
+  T extends Record<string, T[keyof T]>,
+  FK extends string
+>([key, value, prevK]: [string, T[keyof T], string | null]) {
   const d: Record<FK, string>[] = [];
 
   // check if second entry is an object

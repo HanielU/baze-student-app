@@ -41,8 +41,10 @@
         // hoverBackgroundColor: themeVars.color.primary,
         hoverBackgroundColor: ctx => {
           if (ctx.parsed.y < 2) return "hsla(360, 50%, 50%, 1)";
-          else if (ctx.parsed.y < 3) return hslToHsla(themeVars.color.brownContent, 0.9);
-          else if (ctx.parsed.y <= 4) return hslToHsla(themeVars.color.greenContent, 0.9);
+          else if (ctx.parsed.y < 3)
+            return hslToHsla(themeVars.color.brownContent, 0.9);
+          else if (ctx.parsed.y <= 4)
+            return hslToHsla(themeVars.color.greenContent, 0.9);
         },
         barThickness,
       },
@@ -109,13 +111,20 @@
   });
 
   function setupChart(ctx: HTMLCanvasElement) {
-    const registerables = [BarController, Tooltip, LinearScale, CategoryScale, BarElement];
+    const registerables = [
+      BarController,
+      Tooltip,
+      LinearScale,
+      CategoryScale,
+      BarElement,
+    ];
     ChartJS.register(registerables);
 
     const lengthOfProgression = data.labels?.length as number;
     const sideMarginProbably = 20;
     const chartWidth =
-      barThickness * lengthOfProgression + sideMarginProbably * lengthOfProgression;
+      barThickness * lengthOfProgression +
+      sideMarginProbably * lengthOfProgression;
 
     function calculateChartWidth() {
       const parentDiv = ctx.parentElement as HTMLDivElement;
@@ -126,7 +135,8 @@
         parentDiv.style.width = `${
           parentDiv.clientWidth +
           // found a great ratio, wouldn't touch if I were you
-          (chartToParentDifference < 150 ? 20 : barThickness) * lengthOfProgression
+          (chartToParentDifference < 150 ? 20 : barThickness) *
+            lengthOfProgression
         }px`;
       }
     }
@@ -151,15 +161,17 @@
 
     <h1 class="font-(semibold secondary) text-4xl uppercase">{cgpa}</h1>
 
-    <un:w-full class="absolute bottom-0 left-0 flex-u-center">
+    <div class="w-full absolute bottom-0 left-0 s-flex-center">
       <div class="w-80% min-w-200px" border-b="~ base-content-muted/30" />
-    </un:w-full>
+    </div>
   </div>
 
   <!-- Chart "legend" -->
   <h4 class="uppercase text-(xs center base-content-muted)">
     Performance Graph .
-    <un:font-semibold class="text-base-content inline-block"> Max Performance: 4 </un:font-semibold>
+    <h1 class="font-semibold text-base-content inline-block">
+      Max Performance: 4
+    </h1>
   </h4>
 
   <!-- Chart -->
