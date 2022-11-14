@@ -44,7 +44,7 @@ export default defineConfig({
   shortcuts: [
     {
       "page-heading":
-        "mb-8 px-5 font-(secondary semibold) text-3xl tracking-tight",
+        "mb-8 px-5 font-(secondary semibold) text-(3xl neutral-900) tracking-tight",
     },
     [
       // s-flex stands for flex-shortcut

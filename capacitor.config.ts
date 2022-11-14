@@ -7,12 +7,12 @@ const config: CapacitorConfig = {
   bundledWebRuntime: false,
 
   // remove when building for production
-  server: {
-    // url: "http://192.168.0.182:5173", // hynetflex 5ghz
-    // url: "http://192.168.0.59:5173", // hynetflex 5G 2.4ghz
-    url: "http://192.168.165.22:5173", // redmi hotspot
-    cleartext: true,
-  },
+  // server: {
+  //   // url: "http://192.168.0.182:5173", // hynetflex 5ghz
+  //   // url: "http://192.168.0.59:5173", // hynetflex 5G 2.4ghz
+  //   url: "http://192.168.48.22:5173", // redmi hotspot
+  //   cleartext: true,
+  // },
 
   plugins: {
     LocalNotifications: {

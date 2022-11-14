@@ -7,8 +7,8 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <nav
-  border-b="~ primary/15"
-  p="x-5 y-3"
+  border-b="~ neutral-100"
+  p="x-5 y-2"
   class="bg-base-100 s-flex-between sticky top-0 mb-10 w-full z-20"
 >
   <!-- burger btn -->
@@ -19,6 +19,6 @@
     <div class={menuBtn} class:open={$sidebarOpen} />
   </div>
 
-  <h3 class="text-sm uppercase">{studentName}</h3>
+  <h3 class="text-(sm neutral-600) uppercase">{studentName}</h3>
   <!-- <h3 class="text-sm">{window.innerWidth}</h3> -->
 </nav>

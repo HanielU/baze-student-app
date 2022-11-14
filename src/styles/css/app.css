@@ -3,7 +3,7 @@
 *,
 *::before,
 *::after {
-  border-color: theme("colors.primary.DEFAULT");
+  @apply select-none border-neutral-100;
 }
 
 html,
@@ -13,9 +13,5 @@ body {
 
 :root {
   -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  font-family: theme("fontFamily.primary");
-  color: theme("colors.neutral.900");
-  background-color: theme("colors.neutral.50");
-  position: relative;
+  @apply relative text-neutral-300 font-primary bg-neutral-50;
 }

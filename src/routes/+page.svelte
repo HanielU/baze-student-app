@@ -4,7 +4,8 @@
   import PerformanceGraph from "./components/PerformanceGraph.svelte";
   import { moduleDetails } from "$lib/dummydata/moduleDetails";
 
-  const sectionHeading = "px-5 text-sm font-semibold uppercase mb-2.5";
+  const sectionHeading =
+    "px-5 text-(sm neutral-800) font-semibold uppercase mb-2.5";
 </script>
 
 <h1 class="page-heading">Dashboard</h1>
@@ -15,9 +16,9 @@
 
   <div
     class="illegal-scroll flex max-w-full gap-5 overflow-x-auto
-    scrollbar:h-5px
-    scrollbar-track:(rounded-2.5 bg-base-content/4)
-    scrollbar-thumb:(rounded-2.5 bg-base-content-muted/20)"
+    scrollbar:h-0.8
+    scrollbar-track:(rounded-2.5 bg-neutral-200/4)
+    scrollbar-thumb:(rounded-2.5 bg-neutral-200/40)"
     p="b-5 x-5"
   >
     {#each moduleDetails as { label, value }}

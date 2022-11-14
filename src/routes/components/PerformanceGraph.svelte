@@ -13,7 +13,7 @@
   } from "chart.js";
   // import { fontString } from "chart.js/helpers";
   import { progression } from "$lib/dummydata/progression";
-  import { themeVars } from "$styles/vanilla/theme.css";
+  import { themeVars, themeVars2, themeVars3 } from "$styles/vanilla/theme.css";
   import { hslToHsla } from "$lib/utils";
 
   // from dribbble design
@@ -34,17 +34,15 @@
         //   else if (ctx.raw < 3) return hslToHsla(themeVars.color.brownContent, 0.9);
         //   else if (ctx.raw <= 4) return hslToHsla(themeVars.color.greenContent, 0.9);
         // },
-        backgroundColor: themeVars.color.base.contentMuted,
+        backgroundColor: themeVars3.neutral[200],
         borderWidth: 0,
         borderRadius: 5,
         borderSkipped: false,
         // hoverBackgroundColor: themeVars.color.primary,
         hoverBackgroundColor: ctx => {
-          if (ctx.parsed.y < 2) return "hsla(360, 50%, 50%, 1)";
-          else if (ctx.parsed.y < 3)
-            return hslToHsla(themeVars.color.brownContent, 0.9);
-          else if (ctx.parsed.y <= 4)
-            return hslToHsla(themeVars.color.greenContent, 0.9);
+          if (ctx.parsed.y < 2) return themeVars2.red[400];
+          else if (ctx.parsed.y < 3) return themeVars3.orangeV[400];
+          else if (ctx.parsed.y <= 4) return themeVars3.teal[400];
         },
         barThickness,
       },
@@ -155,21 +153,24 @@
 <div class="rounded-4 bg-base-100 w-full shadow overflow-hidden">
   <!-- CGPA -->
   <div class="w-full text-center mb-5 relative" p="t-5 x-5 b-2">
-    <h3 class="font-medium uppercase text-(base-content/85 xs) mb-1">
+    <h3 class="font-medium uppercase text-(neutral-600 xs) mb-1">
       Cumulative Grade Point Average
     </h3>
 
-    <h1 class="font-(semibold secondary) text-4xl uppercase">{cgpa}</h1>
+    <h1 class="font-(semibold secondary) text-(4xl neutral-800) uppercase">
+      {cgpa}
+    </h1>
 
+    <!-- divider -->
     <div class="w-full absolute bottom-0 left-0 s-flex-center">
-      <div class="w-80% min-w-200px" border-b="~ base-content-muted/30" />
+      <div class="w-80% min-w-200px" border-b="~ neutral-100" />
     </div>
   </div>
 
   <!-- Chart "legend" -->
   <h4 class="uppercase text-(xs center base-content-muted)">
     Performance Graph .
-    <h1 class="font-semibold text-base-content inline-block">
+    <h1 class="font-semibold text-neutral-600 inline-block">
       Max Performance: 4
     </h1>
   </h4>
@@ -177,9 +178,9 @@
   <!-- Chart -->
   <div
     class="h-38vh min-h-350px max-h-500px w-full overflow-x-scroll md:(w-600px)
-    scrollbar:h-1.5
-    scrollbar-track:(rounded-2.5 bg-base-content/4)
-    scrollbar-thumb:(rounded-2.5 bg-base-content-muted/60)"
+    scrollbar:h-1
+    scrollbar-track:(rounded-2.5 bg-neutral-50)
+    scrollbar-thumb:(rounded-2.5 bg-neutral-200/80)"
     p="t-5 b-6 x-5"
   >
     <div class="illegal-scroll relative h-full w-100%">

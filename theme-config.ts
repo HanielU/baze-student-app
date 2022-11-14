@@ -202,6 +202,20 @@ export const themeVars3 = {
     "800": "#B44D12",
     "900": "#8D2B0B",
   },
+
+  // my addition
+  teal: {
+    "50": "#EFFCF6",
+    "100": "#C6F7E2",
+    "200": "#8EEDC7",
+    "300": "#65D6AD",
+    "400": "#3EBD93",
+    "500": "#27AB83",
+    "600": "#199473",
+    "700": "#147D64",
+    "800": "#0C6B58",
+    "900": "#014D40",
+  },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

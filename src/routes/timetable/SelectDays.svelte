@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
 
   const days: Day[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  export let selectedDay = days[new Date().getDay() + 1];
+  export let selectedDay = days[new Date().getDay()];
 
   function setBgPos(node: HTMLButtonElement) {
     const movingBg = document.querySelector<HTMLDivElement>("#shadow-div")!;
@@ -34,14 +34,14 @@
 
 <div class="mb-6">
   <div
-    class="illegal-scroll relative flex max-w-full overflow-x-auto
+    class="illegal-scroll relative flex max-w-full overflow-x-auto text-neutral-500
     scrollbar:h-0.8
     scrollbar-track:(rounded-2.5 bg-neutral-200/4)
     scrollbar-thumb:(rounded-2.5 bg-neutral-200/40)"
     p="b-4 x-5"
   >
     <div
-      class="absolute top-0 left-0 bg-orange-v-400 transition-all-250 rounded-full"
+      class="absolute top-0 left-0 bg-neutral-900 transition-all-250 rounded-full"
       id="shadow-div"
     />
 

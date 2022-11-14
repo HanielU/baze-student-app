@@ -1,4 +1,4 @@
-export { themeVars } from "theme-config";
+export { themeVars, themeVars2, themeVars3 } from "theme-config";
 import { themeVars, themeVars3 } from "theme-config";
 import {
   createGlobalTheme,

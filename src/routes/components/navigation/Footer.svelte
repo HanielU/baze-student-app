@@ -84,13 +84,13 @@
     {#each footerLinks as { path, name, classes }}
       {@const currentPathActive = $page.url.pathname === path}
 
-      <Link to={path} class="mx-auto block py-4">
+      <Link to={path} class="mx-auto block py-3">
         <div
           use:getLinkWidth
           class={clsx(
-            "transition-all duration-250 px-4 py-3 s-flex-start-center text-primary-content rounded-10",
+            "transition-all duration-250 px-4 py-3 s-flex-start-center text-white rounded-10",
             currentPathActive
-              ? "bg-primary gap-1 w-[var(--linkWidth)]"
+              ? "bg-neutral-900 gap-1 w-[var(--linkWidth)]"
               : "w-[var(--linkWOTS)]"
           )}
         >

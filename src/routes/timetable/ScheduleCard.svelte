@@ -18,14 +18,14 @@
   <!-- header -->
   <div
     class="
-    s-flex-between-baseline text-(sm base-content) pb-1.8 
+    s-flex-between-baseline text-(sm neutral-600) pb-1.8 
     mb-1.8 border-b-(1 base-content/30)"
   >
     <h3 class="">{moduleCode}</h3>
 
     <div class="s-flex-center gap-0.5">
       <div>
-        <div class="i-ri-time-line bg-base-content/70" />
+        <div class="i-ri-time-line" />
       </div>
 
       <div>
@@ -35,10 +35,10 @@
   </div>
 
   <div>
-    <h1 class="fw-semibold mb-2">{moduleName}</h1>
+    <h1 class="fw-semibold mb-2 text-neutral-900">{moduleName}</h1>
 
     <!-- lecturer -->
-    <div class="s-flex-start gap-1 text-(sm base-content-muted) font-secondary">
+    <div class="s-flex-start gap-1 text-(sm neutral-400) font-secondary">
       <!-- icon wrapper -->
       <div>
         <div class="i-ri-user-3-line" />
