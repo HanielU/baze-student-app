@@ -16,16 +16,10 @@ const obj = {
   primary: "Sheesh",
 };
 
-type Join<S1, S2> = S1 extends string
-  ? S2 extends string
-    ? `${S1}-${S2}`
-    : never
-  : never;
+type Join<S1, S2> = S1 extends string ? (S2 extends string ? `${S1}-${S2}` : never) : never;
 
 export type Paths<T> = {
-  [K in keyof T]: T[K] extends Record<string, unknown>
-    ? Join<K, Paths<T[K]>>
-    : K;
+  [K in keyof T]: T[K] extends Record<string, unknown> ? Join<K, Paths<T[K]>> : K;
 }[keyof T];
 
 type Obj = typeof obj;
@@ -38,11 +32,7 @@ const concatenated = entries
 
 console.log(concatenated["primary"]);
 
-function format<T, K extends string>([key, value, prevK]: [
-  string,
-  T[keyof T],
-  string | null
-]) {
+function format<T, K extends string>([key, value, prevK]: [string, T[keyof T], string | null]) {
   const d: Record<K, string>[] = [];
 
   // check if second entry is an object
@@ -58,9 +48,7 @@ function format<T, K extends string>([key, value, prevK]: [
       } else {
         const entries = Object.entries({ [objKey]: objValue });
         d.push(
-          ...entries.flatMap(([k, v]) =>
-            format<T, K>([k, v, `${prevK ? prevK + "-" + key : key}`])
-          )
+          ...entries.flatMap(([k, v]) => format<T, K>([k, v, `${prevK ? prevK + "-" + key : key}`]))
         );
       }
     });

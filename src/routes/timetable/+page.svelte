@@ -1,17 +1,7 @@
 <script lang="ts">
-  import type { Day } from "$lib/types";
   import ScheduleCard from "./ScheduleCard.svelte";
-  import SelectDays from "./SelectDays.svelte";
-
-  type Course = {
-    startTime: number;
-    endTime: number;
-    moduleName: string;
-    moduleCode: string;
-    lecturer: string;
-    venue: string;
-    day: Day;
-  };
+  import DaySelector from "./DaySelector.svelte";
+  import type { Course, Day } from "$lib/types";
 
   const courses: Course[] = [
     {
@@ -44,14 +34,26 @@
   ];
 
   let selectedDay: Day;
+
+  // gets all days for the current day without the `day` property
+  $: currentDay = courses
+    .filter(c => c.day == selectedDay)
+    .map(c => {
+      // without a deep copy the `day` field on the original `courses` object is deleted
+      const deepCopy = JSON.parse(JSON.stringify(c));
+      delete deepCopy.day;
+      return deepCopy;
+    });
 </script>
 
 <h1 class="page-heading mb-6 text-2xl">Timetable</h1>
 
-<SelectDays bind:selectedDay />
+<DaySelector bind:selectedDay />
 
 <section class="px-5 pb-10">
-  {#each courses as course}
+  {#each currentDay as course}
     <ScheduleCard {...course} />
+  {:else}
+    <h3>Great, you've got no lectures today</h3>
   {/each}
 </section>

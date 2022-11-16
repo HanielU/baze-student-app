@@ -5,8 +5,7 @@ type LocalNotificationsPlugin = LNP | undefined;
 type PermissionState = PSate | undefined;
 
 export const scheduleBasic =
-  (LocalNotifications: LocalNotificationsPlugin, permission: PermissionState) =>
-  async () => {
+  (LocalNotifications: LocalNotificationsPlugin, permission: PermissionState) => async () => {
     if (!LocalNotifications || !permission) return;
 
     if (permission == "denied") {
@@ -26,8 +25,7 @@ export const scheduleBasic =
   };
 
 export const scheduleMultiple =
-  (LocalNotifications: LocalNotificationsPlugin, permission: PermissionState) =>
-  async () => {
+  (LocalNotifications: LocalNotificationsPlugin, permission: PermissionState) => async () => {
     if (!LocalNotifications || !permission) return;
 
     if (permission == "denied") {

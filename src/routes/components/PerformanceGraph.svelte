@@ -17,7 +17,7 @@
   import { hslToHsla } from "$lib/utils";
 
   // from dribbble design
-  const green = "hsl(158, 74%, 38%)";
+  // const green = "hsl(158, 74%, 38%)";
   // const dark = "hsl(223, 25%, 22%)";
 
   const cgpa = 3.56;
@@ -109,20 +109,13 @@
   });
 
   function setupChart(ctx: HTMLCanvasElement) {
-    const registerables = [
-      BarController,
-      Tooltip,
-      LinearScale,
-      CategoryScale,
-      BarElement,
-    ];
+    const registerables = [BarController, Tooltip, LinearScale, CategoryScale, BarElement];
     ChartJS.register(registerables);
 
     const lengthOfProgression = data.labels?.length as number;
     const sideMarginProbably = 20;
     const chartWidth =
-      barThickness * lengthOfProgression +
-      sideMarginProbably * lengthOfProgression;
+      barThickness * lengthOfProgression + sideMarginProbably * lengthOfProgression;
 
     function calculateChartWidth() {
       const parentDiv = ctx.parentElement as HTMLDivElement;
@@ -133,8 +126,7 @@
         parentDiv.style.width = `${
           parentDiv.clientWidth +
           // found a great ratio, wouldn't touch if I were you
-          (chartToParentDifference < 150 ? 20 : barThickness) *
-            lengthOfProgression
+          (chartToParentDifference < 150 ? 20 : barThickness) * lengthOfProgression
         }px`;
       }
     }
@@ -152,10 +144,8 @@
 
 <div class="rounded-4 bg-base-100 w-full shadow overflow-hidden">
   <!-- CGPA -->
-  <div class="w-full text-center mb-5 relative" p="t-5 x-5 b-2">
-    <h3 class="font-medium uppercase text-(neutral-600 xs) mb-1">
-      Cumulative Grade Point Average
-    </h3>
+  <div class="w-full text-center mb-5 relative p-(t-5 x-5 b-2)">
+    <h3 class="font-medium uppercase text-(neutral-600 xs) mb-1">Cumulative Grade Point Average</h3>
 
     <h1 class="font-(semibold secondary) text-(4xl neutral-800) uppercase">
       {cgpa}
@@ -168,11 +158,9 @@
   </div>
 
   <!-- Chart "legend" -->
-  <h4 class="uppercase text-(xs center base-content-muted)">
+  <h4 class="uppercase text-(xs center)">
     Performance Graph .
-    <h1 class="font-semibold text-neutral-600 inline-block">
-      Max Performance: 4
-    </h1>
+    <h1 class="font-semibold text-neutral-600 inline-block">Max Performance: 4</h1>
   </h4>
 
   <!-- Chart -->

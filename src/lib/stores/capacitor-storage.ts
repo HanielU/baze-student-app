@@ -5,10 +5,7 @@ import { writable } from "svelte/store";
 
 const client = typeof window !== "undefined";
 
-export function capacitorStorageStore<T>(
-  key: string,
-  initial: T
-): WritableCapacitorStorage<T> {
+export function capacitorStorageStore<T>(key: string, initial: T): WritableCapacitorStorage<T> {
   const {
     set: setStore,
     update: updateStore,
@@ -34,8 +31,7 @@ export function capacitorStorageStore<T>(
       // has run.
       if (++track == 1) return;
 
-      client &&
-        (await Preferences.set({ key, value: JSON.stringify(current) }));
+      client && (await Preferences.set({ key, value: JSON.stringify(current) }));
     });
     updateStore(value);
     unsub();

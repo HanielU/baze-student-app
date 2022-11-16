@@ -1,9 +1,6 @@
 export { themeVars, themeVars2, themeVars3 } from "theme-config";
 import { themeVars, themeVars3 } from "theme-config";
-import {
-  createGlobalTheme,
-  createGlobalThemeContract,
-} from "@vanilla-extract/css";
+import { createGlobalTheme, createGlobalThemeContract } from "@vanilla-extract/css";
 
 // https://vanilla-extract.style/documentation/global-api/create-global-theme-contract/#formatting-the-variable-names
 export const theme = createGlobalThemeContract(

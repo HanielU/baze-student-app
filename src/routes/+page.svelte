@@ -4,8 +4,7 @@
   import PerformanceGraph from "./components/PerformanceGraph.svelte";
   import { moduleDetails } from "$lib/dummydata/moduleDetails";
 
-  const sectionHeading =
-    "px-5 text-(sm neutral-800) font-semibold uppercase mb-2.5";
+  const sectionHeading = "px-5 text-(sm neutral-800) font-semibold uppercase mb-2.5";
 </script>
 
 <h1 class="page-heading">Dashboard</h1>

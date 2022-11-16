@@ -2,23 +2,11 @@
   import Link from "./Link.svelte";
   import clsx from "clsx";
   import { page } from "$app/stores";
+  import type { NavLink } from "$lib/types";
 
   export let footerHeight: number;
 
-  type FooterLink = {
-    path: string;
-    name: string;
-    classes: {
-      fill: string;
-      line: string;
-      /**
-       * Classlist for styling icon wrapper
-       */
-      wrapper?: string;
-    };
-  };
-
-  const footerLinks: FooterLink[] = [
+  const footerLinks: NavLink[] = [
     {
       path: "/",
       name: "Dashboard",
@@ -50,8 +38,7 @@
   // :fix: linkWidth is still incorrect on first render most times
   function getLinkWidth(ctx: HTMLDivElement) {
     const linkWidth = ctx.clientWidth;
-    const linkWidthWithoutTextSpan =
-      linkWidth - ctx.querySelector("span")!.clientWidth;
+    const linkWidthWithoutTextSpan = linkWidth - ctx.querySelector("span")!.clientWidth;
 
     ctx.style.setProperty("--linkWidth", `${linkWidth}px`);
     ctx.style.setProperty("--linkWOTS", `${linkWidthWithoutTextSpan}px`); // linkWOTS - link width without text span
@@ -64,10 +51,7 @@
     function update() {
       const textSpan = ctx.querySelector("span")!;
       const textSpanWidth = textSpan.clientWidth;
-      ctx.style.setProperty(
-        "--linkWidth",
-        `${linkWidthWithoutTextSpan + textSpanWidth}px`
-      );
+      ctx.style.setProperty("--linkWidth", `${linkWidthWithoutTextSpan + textSpanWidth}px`);
     }
     setTimeout(update, 800);
   }
@@ -84,20 +68,16 @@
     {#each footerLinks as { path, name, classes }}
       {@const currentPathActive = $page.url.pathname === path}
 
-      <Link to={path} class="mx-auto block py-3">
+      <Link href={path} class="mx-auto block py-3">
         <div
           use:getLinkWidth
           class={clsx(
             "transition-all duration-250 px-4 py-3 s-flex-start-center text-white rounded-10",
-            currentPathActive
-              ? "bg-neutral-900 gap-1 w-[var(--linkWidth)]"
-              : "w-[var(--linkWOTS)]"
+            currentPathActive ? "bg-neutral-900 gap-1 w-[var(--linkWidth)]" : "w-[var(--linkWOTS)]"
           )}
         >
           <!-- icon wrapper -->
-          <div
-            class={clsx("flex relative", !currentPathActive && classes.wrapper)}
-          >
+          <div class={clsx("flex relative", !currentPathActive && classes.wrapper)}>
             <div
               class={clsx(
                 "transition-all duration-250 text-xl relative",

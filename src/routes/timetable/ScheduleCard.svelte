@@ -1,13 +1,10 @@
 <script lang="ts">
-  import type { Day } from "$lib/types";
-
   export let moduleCode: string;
   export let moduleName: string;
   export let startTime: number;
   export let endTime: number;
   export let venue: string;
   export let lecturer: string;
-  export let day: Day;
 </script>
 
 <div
@@ -57,18 +54,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div
-  class="shadow-(2xl base-content/2) border-(1 primary/10) mb-4 p-x-6 py-4 relative rounded-2xl font-semibold tracking-tight text-(sm gray-8) [&_>*]:leading-relaxed"
->
-  <h4 class="text-base-content-muted">{moduleCode}</h4>
-  <h2 text-4>{moduleName}</h2>
-  <h4 text="base-content/80">
-    {startTime}:00 {startTime >= 12 ? "PM" : "AM"} - {endTime}:00 {endTime >= 12
-      ? "PM"
-      : "AM"}
-  </h4>
-  <h4 text="base-content/70 uppercase">
-    {venue}
-  </h4>
-</div> -->

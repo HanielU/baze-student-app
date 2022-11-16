@@ -21,9 +21,7 @@
   }
 
   onMount(() => {
-    const activeDayElem = document.getElementById(
-      "active-true"
-    )! as HTMLButtonElement;
+    const activeDayElem = document.getElementById("active-true")! as HTMLButtonElement;
     setBgPos(activeDayElem);
     // scroll left by the offsetLeft of the element + 20px (which is the current padding)
     activeDayElem.parentElement?.scrollBy({

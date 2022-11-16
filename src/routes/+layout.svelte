@@ -46,8 +46,7 @@
         }
       });
 
-      ({ display: notificationsPermission } =
-        await LocalNotifications.checkPermissions());
+      ({ display: notificationsPermission } = await LocalNotifications.checkPermissions());
 
       if (notificationsPermission == "denied") {
         const { display } = await LocalNotifications.requestPermissions();
@@ -77,17 +76,11 @@
         ],
       });
 
-      LocalNotifications.addListener(
-        "localNotificationActionPerformed",
-        notificationAction => {
-          if (notificationAction.notification.actionTypeId == "reply") {
-            console.log(
-              "on reply:",
-              notificationAction.inputValue || notificationAction.actionId
-            );
-          }
+      LocalNotifications.addListener("localNotificationActionPerformed", notificationAction => {
+        if (notificationAction.notification.actionTypeId == "reply") {
+          console.log("on reply:", notificationAction.inputValue || notificationAction.actionId);
         }
-      );
+      });
     }
   });
 </script>
@@ -98,16 +91,10 @@
 
 <SwipeInteraction />
 
-<div
-  id="app"
-  class="relative h-screen w-full overflow-x-hidden"
-  style:--footerH="{footerHeight}px"
->
+<div id="app" class="relative h-screen w-full overflow-x-hidden" style:--footerH="{footerHeight}px">
   <Sidebar />
 
-  <div
-    class="relative h-full overflow-y-auto overflow-x-hidden pb-[var(--footerH)]"
-  >
+  <div class="relative h-full overflow-y-auto overflow-x-hidden pb-[var(--footerH)]">
     <Header />
 
     <slot />

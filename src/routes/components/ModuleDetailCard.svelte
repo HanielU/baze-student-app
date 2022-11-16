@@ -6,10 +6,7 @@
 </script>
 
 <!-- card -->
-<div
-  border="~ neutral-100"
-  class="illegal-scroll min-w-46 bg-base-100 rounded-xl p-5 shadow"
->
+<div border="~ neutral-100" class="illegal-scroll min-w-46 bg-base-100 rounded-xl p-5 shadow">
   <h4 class="text-(sm neutral-500)">{label}</h4>
   <h2 class="text-(2xl neutral-800) font-bold">{value}</h2>
 </div>

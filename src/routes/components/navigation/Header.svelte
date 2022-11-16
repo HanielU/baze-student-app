@@ -9,11 +9,11 @@
 <nav
   border-b="~ neutral-100"
   p="x-5 y-2"
-  class="bg-base-100 s-flex-between sticky top-0 mb-10 w-full z-20"
+  class="bg-base-100 s-flex-between sticky top-0 mb-8 w-full z-20"
 >
   <!-- burger btn -->
   <div
-    class="s-flex-center bg-base-100 square-12 cursor-pointer rounded-md shadow-sm"
+    class="s-flex-center bg-white square-12 cursor-pointer rounded-md shadow-sm"
     on:click={() => ($sidebarOpen = !$sidebarOpen)}
   >
     <div class={menuBtn} class:open={$sidebarOpen} />

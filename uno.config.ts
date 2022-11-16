@@ -43,15 +43,13 @@ export default defineConfig({
   // https://github.com/unocss/unocss#shortcuts
   shortcuts: [
     {
-      "page-heading":
-        "mb-8 px-5 font-(secondary semibold) text-(3xl neutral-900) tracking-tight",
+      "page-heading": "mb-8 px-5 font-(secondary semibold) text-(3xl neutral-900) tracking-tight",
     },
     [
       // s-flex stands for flex-shortcut
       // to avoid mixups with default flex utilities like flex-wrap
       /^s-flex-([a-z]+)-?([a-z]*)$/,
-      ([, justify, align]) =>
-        `flex justify-${justify} items-${align || "center"}`,
+      ([, justify, align]) => `flex justify-${justify} items-${align || "center"}`,
     ],
     // use when width and height values are the same
     [/^square-(.*)$/, ([, v]) => `h-${v} w-${v}`],
@@ -59,11 +57,7 @@ export default defineConfig({
 
   variants: [
     matcher => {
-      const [m1, m2, m3] = [
-        "scrollbar:",
-        "scrollbar-track:",
-        "scrollbar-thumb:",
-      ];
+      const [m1, m2, m3] = ["scrollbar:", "scrollbar-track:", "scrollbar-thumb:"];
       let matchedStr = "";
 
       if (matcher.startsWith(m1)) {

@@ -1,7 +1,4 @@
-export function hexToHSL(
-  hex: string,
-  satAndLight?: { s?: number; l?: number }
-) {
+export function hexToHSL(hex: string, satAndLight?: { s?: number; l?: number }) {
   // convert hex to rgb
   let r = 0,
     g = 0,
