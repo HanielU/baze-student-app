@@ -7,6 +7,7 @@ import {
   presetTagify,
   transformerDirectives,
   transformerVariantGroup,
+  transformerCompileClass,
 } from "unocss";
 // https://github.com/unocss/unocss/tree/main/packages/vite
 // https://github.com/unocss/unocss/tree/main/packages/vite#svelte
@@ -93,5 +94,5 @@ export default defineConfig({
       },
     }),
   ],
-  transformers: [transformerDirectives(), transformerVariantGroup()],
+  transformers: [transformerDirectives(), transformerVariantGroup(), transformerCompileClass()],
 });

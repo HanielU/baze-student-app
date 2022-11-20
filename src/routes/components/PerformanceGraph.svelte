@@ -15,25 +15,17 @@
   import { progression } from "$lib/dummydata/progression";
   import { themeVars, themeVars2, themeVars3 } from "$styles/vanilla/theme.css";
   import { hslToHsla } from "$lib/utils";
-
-  // from dribbble design
-  // const green = "hsl(158, 74%, 38%)";
-  // const dark = "hsl(223, 25%, 22%)";
+  import { smallestWidth } from "$lib/stores";
 
   const cgpa = 3.56;
 
-  const barThickness = 45; // 50px
+  const barThickness = $smallestWidth >= 450 ? 45 : 35; // 50px was the og size
   const data: ChartData<"bar", DefaultDataPoint<"bar">, string> = {
     labels: Object.keys(progression), // x-axis label
     datasets: [
       {
         label: "GPA",
         data: Object.values(progression), // y-axis values
-        // backgroundColor: (ctx, opts) => {
-        //   if (ctx.raw < 2) return hslToHsla(themeVars.color.redContent, 0.5);
-        //   else if (ctx.raw < 3) return hslToHsla(themeVars.color.brownContent, 0.9);
-        //   else if (ctx.raw <= 4) return hslToHsla(themeVars.color.greenContent, 0.9);
-        // },
         backgroundColor: themeVars3.neutral[200],
         borderWidth: 0,
         borderRadius: 5,
@@ -165,7 +157,7 @@
 
   <!-- Chart -->
   <div
-    class="h-38vh min-h-350px max-h-500px w-full overflow-x-scroll md:(w-600px)
+    class="h-38vh min-h-350px max-h-500px w-full overflow-x-scroll md:w-600px
     scrollbar:h-1
     scrollbar-track:(rounded-2.5 bg-neutral-50)
     scrollbar-thumb:(rounded-2.5 bg-neutral-200/80)"

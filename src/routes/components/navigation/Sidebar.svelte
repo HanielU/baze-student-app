@@ -22,6 +22,11 @@
       name: "Registration",
       classes: {},
     },
+    {
+      path: "/sandbox",
+      name: "Sandbox",
+      classes: {},
+    },
   ];
 
   afterNavigate(() => ($sidebarOpen = false));

@@ -1,8 +1,7 @@
 <script lang="ts">
-  import ModuleDetailCard from "./components/ModuleDetailCard.svelte";
   import StudentDetails from "./components/StudentDetails.svelte";
   import PerformanceGraph from "./components/PerformanceGraph.svelte";
-  import { moduleDetails } from "$lib/dummydata/moduleDetails";
+  import ModuleDetails from "./components/ModuleDetails.svelte";
 
   const sectionHeading = "px-5 text-(sm neutral-800) font-semibold uppercase mb-2.5";
 </script>
@@ -13,17 +12,7 @@
 <section class="mb-7">
   <h3 class={sectionHeading}>Module Details</h3>
 
-  <div
-    class="illegal-scroll flex max-w-full gap-5 overflow-x-auto
-    scrollbar:h-0.8
-    scrollbar-track:(rounded-2.5 bg-neutral-200/4)
-    scrollbar-thumb:(rounded-2.5 bg-neutral-200/40)"
-    p="b-5 x-5"
-  >
-    {#each moduleDetails as { label, value }}
-      <ModuleDetailCard {label} {value} />
-    {/each}
-  </div>
+  <ModuleDetails />
 </section>
 
 <!-- Student Details -->

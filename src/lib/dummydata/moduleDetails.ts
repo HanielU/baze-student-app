@@ -16,7 +16,7 @@ export const moduleDetails: ModuleDetails[] = [
     value: 0,
   },
   {
-    label: "Currently Taking",
+    label: "Now Taking",
     value: 4,
   },
 ];
