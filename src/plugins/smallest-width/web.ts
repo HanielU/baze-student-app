@@ -6,7 +6,7 @@ export class SmallestWidthWeb extends WebPlugin implements SmallestWidthPlugin {
     super();
   }
 
-  async getSmallestWidth(): Promise<{ value: number }> {
+  async getSmallestWidth() {
     return { value: window.innerWidth - 1 };
   }
 }

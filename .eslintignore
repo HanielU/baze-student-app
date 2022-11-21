@@ -6,6 +6,9 @@ node_modules
 .env
 .env.*
 !.env.example
+/.yarn
+/src-tauri
+/.vscode
 /android
 
 static/fonts

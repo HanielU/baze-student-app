@@ -15,12 +15,14 @@
   import { progression } from "$lib/dummydata/progression";
   import { themeVars, themeVars2, themeVars3 } from "$styles/vanilla/theme.css";
   import { hslToHsla } from "$lib/utils";
-  import { smallestWidth } from "$lib/stores";
+  import { SmallestWidth } from "$plugins/smallest-width";
 
   const cgpa = 3.56;
 
-  const barThickness = $smallestWidth >= 450 ? 45 : 35; // 50px was the og size
-  const data: ChartData<"bar", DefaultDataPoint<"bar">, string> = {
+  // const barThickness = ; // 50px was the og size
+  const getChartData = (
+    barThickness: number
+  ): ChartData<"bar", DefaultDataPoint<"bar">, string> => ({
     labels: Object.keys(progression), // x-axis label
     datasets: [
       {
@@ -39,10 +41,11 @@
         barThickness,
       },
     ],
-  };
+  });
 
   const config = (
-    calculateChartWidth: () => void
+    calculateChartWidth: () => void,
+    data: ReturnType<typeof getChartData>
   ): ChartConfiguration<keyof ChartTypeRegistry> => ({
     type: "bar",
     data,
@@ -100,10 +103,10 @@
     },
   });
 
-  function setupChart(ctx: HTMLCanvasElement) {
+  function setupChart(ctx: HTMLCanvasElement, { barThickness }: { barThickness: number }) {
     const registerables = [BarController, Tooltip, LinearScale, CategoryScale, BarElement];
     ChartJS.register(registerables);
-
+    const data = getChartData(barThickness);
     const lengthOfProgression = data.labels?.length as number;
     const sideMarginProbably = 20;
     const chartWidth =
@@ -123,7 +126,7 @@
       }
     }
 
-    const chart = new ChartJS(ctx, config(calculateChartWidth));
+    const chart = new ChartJS(ctx, config(calculateChartWidth, data));
 
     return {
       destroy() {
@@ -164,7 +167,9 @@
     p="t-5 b-6 x-5"
   >
     <div class="illegal-scroll relative h-full w-100%">
-      <canvas use:setupChart />
+      {#await SmallestWidth.getSmallestWidth() then { value }}
+        <canvas use:setupChart={{ barThickness: value > 450 ? 45 : 36 }} />
+      {/await}
     </div>
   </div>
 </div>

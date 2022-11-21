@@ -1,7 +1,9 @@
 <script lang="ts">
-  import { smallestWidth } from "$lib/stores";
+  import { SmallestWidth } from "$plugins/smallest-width";
 </script>
 
 <div>
-  <h1>The smallest Width for this device is: {$smallestWidth}</h1>
+  {#await SmallestWidth.getSmallestWidth() then { value }}
+    <h1>The smallest Width for this device is: {value}</h1>
+  {/await}
 </div>

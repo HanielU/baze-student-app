@@ -9,7 +9,7 @@
     scrollbar-track:(rounded-2.5 bg-neutral-200/4)
     scrollbar-thumb:(rounded-2.5 bg-neutral-200/40)"
 >
-  <div class="illegal-scroll s-flex-center bg-white rounded-xl shadow w-full min-w-27rem">
+  <div class="illegal-scroll s-flex-center bg-white rounded-xl shadow min-w-min">
     <div class="s-flex-evenly-baseline w-full">
       {#each moduleDetails as { label, value }}
         <div
@@ -24,7 +24,7 @@
           <h3 class="leading-2rem text-(5.5 neutral-800) font-bold">
             {value}
           </h3>
-          <div class="text-(sm neutral-500) break-words max-w-11ch">{label}</div>
+          <div class="text-(sm neutral-500) min-w-10ch">{label}</div>
         </div>
       {/each}
     </div>

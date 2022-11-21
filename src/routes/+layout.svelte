@@ -9,8 +9,10 @@
   import SwipeInteraction from "./components/SwipeInteraction.svelte";
   import type { LocalNotificationsPlugin } from "@capacitor/local-notifications";
   import type { PermissionState } from "@capacitor/core";
+  import { Device } from "@capacitor/device";
+  import { SmallestWidth } from "$plugins/smallest-width";
   import { hslToHex } from "$lib/utils";
-  import { navigationStack, platform, smallestWidth } from "$lib/stores";
+  import { navigationStack } from "$lib/stores";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
   import { themeVars } from "$styles/vanilla/theme.css";
@@ -21,15 +23,16 @@
   let footerHeight: number;
 
   onMount(async () => {
-    if ($smallestWidth > 410) {
-      document.documentElement.style.fontSize = "16px";
-    } else {
+    const { platform } = await Device.getInfo();
+    const { value: smallestWidth } = await SmallestWidth.getSmallestWidth();
+
+    if (smallestWidth < 410) {
       document.documentElement.style.fontSize = "14.5px";
     }
 
     // makes sure this is a mobile environment as desktop
     // versions are marked as "web"
-    if ($platform !== "web") {
+    if (platform !== "web") {
       const { StatusBar } = await import("@capacitor/status-bar"); // this thing only works on android | ios
       const { Style } = await import("@capacitor/status-bar");
       const { App } = await import("@capacitor/app");
