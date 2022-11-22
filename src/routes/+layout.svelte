@@ -26,7 +26,7 @@
     const { platform } = await Device.getInfo();
     const { value: smallestWidth } = await SmallestWidth.getSmallestWidth();
 
-    if (smallestWidth < 410) {
+    if (smallestWidth < 400) {
       document.documentElement.style.fontSize = "14.5px";
     }
 
