@@ -160,7 +160,7 @@
 
   <!-- Chart -->
   <div
-    class="h-38vh min-h-350px max-h-500px w-full overflow-x-scroll md:w-600px
+    class="h-350px w-full overflow-x-scroll md:w-600px
     scrollbar:h-1
     scrollbar-track:(rounded-2.5 bg-neutral-50)
     scrollbar-thumb:(rounded-2.5 bg-neutral-200/80)"

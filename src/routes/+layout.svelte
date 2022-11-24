@@ -13,6 +13,7 @@
   import { SmallestWidth } from "$plugins/smallest-width";
   import { hslToHex } from "$lib/utils";
   import { navigationStack } from "$lib/stores";
+  import { notificationActionTypes } from "$lib/notifications";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
   import { themeVars } from "$styles/vanilla/theme.css";
@@ -47,7 +48,7 @@
         if ($page.url.pathname === "/") {
           App.exitApp();
         } else if ($navigationStack !== 0) {
-          $navigationStack--; // indicates the supposed new of window history length
+          $navigationStack--; // indicates the supposed new window history length
           window.history.back();
         }
       });
@@ -59,28 +60,7 @@
         if (display == "denied") console.log("awww");
       }
 
-      LocalNotifications.registerActionTypes({
-        types: [
-          {
-            id: "reply",
-            actions: [
-              {
-                id: "reply",
-                title: "reply",
-                input: true,
-              },
-              {
-                id: "yes",
-                title: "yes!",
-              },
-              {
-                id: "no",
-                title: "no.",
-              },
-            ],
-          },
-        ],
-      });
+      LocalNotifications.registerActionTypes(notificationActionTypes);
 
       LocalNotifications.addListener("localNotificationActionPerformed", notificationAction => {
         if (notificationAction.notification.actionTypeId == "reply") {
