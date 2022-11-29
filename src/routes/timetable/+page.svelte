@@ -36,7 +36,7 @@
   let selectedDay: Day;
 
   // gets all days for the current day without the `day` property
-  $: currentDay = courses
+  $: currentDay = <Omit<Course, "day">[]>courses
     .filter(c => c.day == selectedDay)
     .map(c => {
       // without a deep copy the `day` field on the original `courses` object is deleted
