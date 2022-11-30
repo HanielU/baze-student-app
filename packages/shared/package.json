@@ -33,7 +33,7 @@
     "@vanilla-extract/sprinkles": "^1.5.1"
   },
   "devDependencies": {
-    "@packages/tsconfig": "workspace:^0.0.0",
+    "@packages/tsconfig": "workspace:*",
     "@unocss/preset-wind": "^0.47.1",
     "@vanilla-extract/css": "^1.9.2",
     "@vanilla-extract/esbuild-plugin": "^2.2.0",
