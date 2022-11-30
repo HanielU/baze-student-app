@@ -11,21 +11,3 @@ export default {
     },
   },
 };
-
-// :highlight: Needs to be outside src for `svelte-kit sync` to work
-
-// const config = {
-//   // Consult https://github.com/sveltejs/svelte-preprocess
-//   // for more information about preprocessors
-//   preprocess: preprocess(),
-
-//   kit: {
-//     adapter: adapter(),
-//     alias: {
-//       $styles: "./src/styles",
-//       $plugins: "./src/plugins",
-//     },
-//   },
-// };
-
-// export default config;

@@ -1,5 +1,4 @@
-export { themeVars, themeVars2, themeVars3 } from "../theme";
-import { themeVars, themeVars3 } from "../theme";
+import { themeVars, themeVars3 } from "@/theme";
 import { createGlobalTheme, createGlobalThemeContract } from "@vanilla-extract/css";
 
 // https://vanilla-extract.style/documentation/global-api/create-global-theme-contract/#formatting-the-variable-names
