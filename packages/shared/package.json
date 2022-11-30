@@ -2,22 +2,40 @@
   "name": "@packages/shared",
   "version": "0.0.0",
   "private": true,
-  "main": "index.ts",
-  "exports": {
-    ".": "./index.ts",
-    "./theme": "./theme.ts",
-    "./types": "./types.ts",
-    "./theme.css": "./theme.css.ts",
-    "./sprinkles": "./sprinkles.css.ts"
-  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./theme": {
+      "import": "./dist/theme.mjs",
+      "types": "./dist/theme.d.ts"
+    },
+    "./vanilla": {
+      "import": "./dist/vanilla.mjs",
+      "types": "./dist/vanilla.d.ts"
+    },
+    "./sprinkles": {
+      "import": "./dist/sprinkles.mjs",
+      "types": "./dist/sprinkles.d.ts"
+    },
+    "./*": "./*"
   },
   "dependencies": {
-    "@vanilla-extract/css": "^1.9.2",
     "@vanilla-extract/sprinkles": "^1.5.1"
   },
   "devDependencies": {
-    "@unocss/preset-wind": "^0.47.1"
+    "@unocss/preset-wind": "^0.47.1",
+    "@vanilla-extract/css": "^1.9.2",
+    "@vanilla-extract/esbuild-plugin": "^2.2.0",
+    "tsup": "^6.5.0"
   }
 }

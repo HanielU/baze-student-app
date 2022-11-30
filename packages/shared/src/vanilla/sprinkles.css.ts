@@ -1,4 +1,4 @@
-import type { Paths } from "./types";
+import type { Paths } from "../types";
 import type { Theme } from "./theme.css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { resolveVars, pxr } from "./utils";

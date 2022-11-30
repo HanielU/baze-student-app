@@ -1,5 +1,5 @@
 import type { Theme } from "@unocss/preset-wind";
-import { convertPalleteToHSL } from "../";
+import { convertPalleteToHSL } from "../utils";
 
 export const colors: Theme["colors"] = {
   coolBlue: "pink",

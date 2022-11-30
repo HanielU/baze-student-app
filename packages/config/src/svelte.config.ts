@@ -1,4 +1,4 @@
-import adapter, { type AdapterOptions } from "@sveltejs/adapter-static";
+import adapter from "@sveltejs/adapter-static";
 import preprocess from "svelte-preprocess";
 import type { Config } from "@sveltejs/kit";
 

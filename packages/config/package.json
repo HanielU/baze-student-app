@@ -2,7 +2,7 @@
   "name": "@packages/config",
   "version": "0.0.0",
   "scripts": {
-    "build": "svelte-kit sync && rimraf dist && unbuild"
+    "build": "svelte-kit sync && unbuild"
   },
   "type": "module",
   "devDependencies": {
@@ -14,7 +14,6 @@
     "@unocss/preset-wind": "^0.47.1",
     "@vanilla-extract/css": "^1.9.2",
     "@vanilla-extract/vite-plugin": "^3.7.0",
-    "rimraf": "^3.0.2",
     "svelte-preprocess": "^4.10.7",
     "typescript": "^4.9.3",
     "unbuild": "^1.0.1",
