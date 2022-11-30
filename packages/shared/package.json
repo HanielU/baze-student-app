@@ -1,0 +1,23 @@
+{
+  "name": "@packages/shared",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./theme": "./theme.ts",
+    "./types": "./types.ts",
+    "./theme.css": "./theme.css.ts",
+    "./sprinkles": "./sprinkles.css.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@vanilla-extract/css": "^1.9.2",
+    "@vanilla-extract/sprinkles": "^1.5.1"
+  },
+  "devDependencies": {
+    "@unocss/preset-wind": "^0.47.1"
+  }
+}

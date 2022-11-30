@@ -1,15 +1,15 @@
 .DS_Store
 node_modules
-# /build
-/.svelte-kit
-/package
+build
+.svelte-kit
+package
 .env
 .env.*
 !.env.example
-/.yarn
-/src-tauri
-/.vscode
-/android
+.yarn
+src-tauri
+.vscode
+android
 
 static/fonts
 /unused_fonts
