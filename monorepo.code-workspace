@@ -19,6 +19,9 @@
       "path": "packages/ui"
     },
     {
+      "path": "packages/tsconfig"
+    },
+    {
       "path": "packages/eslint-config-custom"
     }
   ]
