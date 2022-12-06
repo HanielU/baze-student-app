@@ -21,6 +21,7 @@
     "vite": "^3.2.4"
   },
   "dependencies": {
+    "@tauri-apps/api": "^1.2.0",
     "clsx": "^1.2.1",
     "eslint-config-custom": "workspace:*"
   }
