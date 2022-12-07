@@ -8,7 +8,7 @@ export default defineConfig({
     index: "src/index.ts",
     theme: "src/theme/index.ts",
     sprinkles: "src/vanilla/sprinkles.css.ts",
-    vanilla: "src/vanilla/theme.css.ts",
+    "v-theme": "src/vanilla/theme.css.ts",
   },
   outDir: "dist",
   splitting: false,

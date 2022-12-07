@@ -1,7 +1,7 @@
 <script lang="ts">
   import "@unocss/reset/tailwind.css";
   import "$styles/css/app.css";
-  import "@packages/shared/dist/vanilla.css"
+  import "@packages/shared/dist/v-theme.css";
   import "uno.css";
 
   import Footer from "./components/navigation/Footer.svelte";

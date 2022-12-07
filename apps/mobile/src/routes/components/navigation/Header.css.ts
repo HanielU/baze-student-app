@@ -1,4 +1,4 @@
-import { theme } from "@packages/shared/vanilla";
+import { theme } from "@packages/shared/v-theme";
 import { style } from "@vanilla-extract/css";
 
 export const menuBtn = style({

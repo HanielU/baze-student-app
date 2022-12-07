@@ -19,9 +19,9 @@
       "import": "./dist/theme.mjs",
       "types": "./dist/theme.d.ts"
     },
-    "./vanilla": {
-      "import": "./dist/vanilla.mjs",
-      "types": "./dist/vanilla.d.ts"
+    "./v-theme": {
+      "import": "./dist/v-theme.mjs",
+      "types": "./dist/v-theme.d.ts"
     },
     "./sprinkles": {
       "import": "./dist/sprinkles.mjs",
