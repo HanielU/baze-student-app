@@ -1,9 +1,9 @@
-import { themeVars, themeVars3 } from "@/theme";
+import { themeVars, themeColorsMain } from "@/theme";
 import { createGlobalTheme, createGlobalThemeContract } from "@vanilla-extract/css";
 
 // https://vanilla-extract.style/documentation/global-api/create-global-theme-contract/#formatting-the-variable-names
 export const theme = createGlobalThemeContract(
-  { ...themeVars, ...themeVars3 },
+  { ...themeVars, ...themeColorsMain },
   (_value, path) =>
     `${path
       .map(s => s)
@@ -13,6 +13,6 @@ export const theme = createGlobalThemeContract(
       .replace(/[A-Z]/, v => `-${v.toLowerCase()}`)}`
 );
 
-createGlobalTheme(":root", theme, { ...themeVars, ...themeVars3 });
+createGlobalTheme(":root", theme, { ...themeVars, ...themeColorsMain });
 
 export type Theme = typeof theme;

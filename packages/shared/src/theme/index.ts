@@ -120,7 +120,7 @@ export const themeVars2 = {
 };
 
 // Palette 8
-export const themeVars3 = convertPalleteToHSL({
+export const themeColorsMain = convertPalleteToHSL({
   // Primary (blue-vivid)
   primary: {
     DEFAULT: "hsl(249, 26.5%, 9.6%)",

@@ -9,16 +9,7 @@ import {
   transformerCompileClass,
   type UserConfig as UnoConfig,
 } from "unocss";
-// https://github.com/unocss/unocss/tree/main/packages/vite
-// https://github.com/unocss/unocss/tree/main/packages/vite#svelte
-// https://github.com/unocss/unocss/tree/main/packages/preset-uno
-// https://github.com/unocss/unocss/tree/main/packages/preset-attributify
-// https://github.com/unocss/unocss/tree/main/packages/preset-icons
-// https://github.com/unocss/unocss/tree/main/packages/preset-tagify
-// https://github.com/unocss/unocss/tree/main/packages/transformer-directives
-// https://github.com/unocss/unocss/tree/main/packages/transformer-variant-group
-
-import { themeVars, themeVars2, themeVars3 } from "@packages/shared/theme";
+import { themeVars, themeVars2, themeColorsMain } from "@packages/shared/theme";
 
 // https://github.com/unocss/unocss#configurations
 export const unoConfig: UnoConfig = {
@@ -31,7 +22,7 @@ export const unoConfig: UnoConfig = {
     colors: {
       ...themeVars.color,
       ...themeVars2,
-      ...themeVars3,
+      ...themeColorsMain,
     },
     boxShadow: {
       DEFAULT: "0px 4px 16px hsla(225, 12.9%, 87.8%, 0.3);",
@@ -81,6 +72,31 @@ export const unoConfig: UnoConfig = {
     },
   ],
 
+  preflights: [
+    {
+      getCSS: ({ theme }: { theme: any }) => `
+      *,
+      *::before,
+      *::after {
+        user-select:none;
+        border-color: ${theme.colors.neutral[100]};
+      }
+
+      html,
+      body {
+        overflow-x: hidden !important;
+      }
+
+      :root {
+        -webkit-tap-highlight-color: transparent;
+        position: relative;
+        color: ${theme.colors.neutral[300]};
+        font-family: OpenSans;
+        background-color: ${theme.colors.neutral[50]};
+      }
+      `,
+    },
+  ],
   // https://github.com/unocss/unocss#using-presets
   presets: [
     presetUno(),

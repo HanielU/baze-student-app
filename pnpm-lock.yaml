@@ -23,6 +23,7 @@ importers:
   apps/desktop:
     specifiers:
       '@packages/config': workspace:*
+      '@packages/shared': workspace:*
       '@sveltejs/kit': 1.0.0-next.561
       '@tauri-apps/api': ^1.2.0
       '@unocss/reset': ^0.46.5
@@ -32,6 +33,7 @@ importers:
       svelte-check: ^2.9.2
       vite: ^3.2.4
     dependencies:
+      '@packages/shared': link:../../packages/shared
       '@tauri-apps/api': 1.2.0
       clsx: 1.2.1
       eslint-config-custom: link:../../packages/eslint-config-custom

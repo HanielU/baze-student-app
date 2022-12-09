@@ -13,7 +13,7 @@
   } from "chart.js";
   // import { fontString } from "chart.js/helpers";
   import { progression } from "$lib/dummydata/progression";
-  import { themeVars, themeVars2, themeVars3 } from "@packages/shared/theme";
+  import { themeVars, themeVars2, themeColorsMain } from "@packages/shared/theme";
   import { hslToHsla } from "@packages/shared";
   import { SmallestWidth } from "$plugins/smallest-width";
 
@@ -28,15 +28,15 @@
       {
         label: "GPA",
         data: Object.values(progression), // y-axis values
-        backgroundColor: themeVars3.neutral[200],
+        backgroundColor: themeColorsMain.neutral[200],
         borderWidth: 0,
         borderRadius: 5,
         borderSkipped: false,
         // hoverBackgroundColor: themeVars.color.primary,
         hoverBackgroundColor: ctx => {
           if (ctx.parsed.y < 2) return themeVars2.red[400];
-          else if (ctx.parsed.y < 3) return themeVars3.orangeV[400];
-          else if (ctx.parsed.y <= 4) return themeVars3.teal[400];
+          else if (ctx.parsed.y < 3) return themeColorsMain.orangeV[400];
+          else if (ctx.parsed.y <= 4) return themeColorsMain.teal[400];
         },
         barThickness,
       },
