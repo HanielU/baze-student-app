@@ -4,4 +4,6 @@
   import "uno.css"; // https://github.com/unocss/unocss/tree/main/packages/vite#installation
 </script>
 
-<slot />
+<div class="h-screen bg-dark-9">
+  <slot />
+</div>
