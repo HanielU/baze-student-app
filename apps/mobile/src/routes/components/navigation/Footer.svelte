@@ -1,8 +1,8 @@
 <script lang="ts">
   import Link from "./Link.svelte";
   import clsx from "clsx";
-  import { page } from "$app/stores";
   import type { NavLink } from "$lib/types";
+  import { page } from "$app/stores";
 
   export let footerHeight: number;
 
@@ -72,7 +72,7 @@
         <div
           use:getLinkWidth
           class={clsx(
-            "transition-all duration-250 px-4 py-3 s-flex-start-center text-white rounded-10",
+            "transition-all-250 px-4 py-3 s-flex-start-center text-white rounded-10",
             currentPathActive ? "bg-neutral-900 gap-1 w-[var(--linkWidth)]" : "w-[var(--linkWOTS)]"
           )}
         >
@@ -80,7 +80,7 @@
           <div class={clsx("flex relative", !currentPathActive && classes.wrapper)}>
             <div
               class={clsx(
-                "transition-all duration-250 text-xl relative",
+                "transition-all-250 text-xl relative",
                 currentPathActive ? classes.fill : classes.line
               )}
             />
@@ -88,7 +88,7 @@
 
           <!-- page link name -->
           <span
-            class="block text-xs opacity-0 transition ease-[ease-out] duration-250"
+            class="block text-xs opacity-0 transition-250 ease-[ease-out]"
             class:opacity-100={currentPathActive}
           >
             {name}

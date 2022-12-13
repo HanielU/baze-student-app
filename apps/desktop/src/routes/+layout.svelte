@@ -1,9 +1,12 @@
 <script lang="ts">
-  import "../app.css";
-  import "@unocss/reset/tailwind.css"; // https://github.com/unocss/unocss#style-resetting
-  import "uno.css"; // https://github.com/unocss/unocss/tree/main/packages/vite#installation
+  import "@unocss/reset/tailwind.css";
+  import "../fonts.css";
+  import "@packages/shared/dist/v-theme.css";
+  import "uno.css";
 </script>
 
-<div class="h-screen bg-dark-9">
+<div class="h-screen w-full">
+
   <slot />
+  
 </div>

@@ -27,6 +27,7 @@ importers:
       '@sveltejs/kit': 1.0.0-next.561
       '@tauri-apps/api': ^1.2.0
       '@unocss/reset': ^0.46.5
+      '@vanilla-extract/css': ^1.9.2
       clsx: ^1.2.1
       eslint-config-custom: workspace:*
       svelte: ^3.53.1
@@ -41,6 +42,7 @@ importers:
       '@packages/config': link:../../packages/config
       '@sveltejs/kit': 1.0.0-next.561_svelte@3.53.1+vite@3.2.4
       '@unocss/reset': 0.46.5
+      '@vanilla-extract/css': 1.9.2
       svelte: 3.53.1
       svelte-check: 2.9.2_svelte@3.53.1
       vite: 3.2.4

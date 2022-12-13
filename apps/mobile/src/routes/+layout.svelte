@@ -45,6 +45,7 @@
       });
       StatusBar.setStyle({ style: Style.Light });
 
+      // This is a hack to make sure the back button works as expected
       App.addListener("backButton", () => {
         if ($page.url.pathname === "/") {
           App.exitApp();
