@@ -29,15 +29,15 @@
     },
     "./*": "./*"
   },
-  "dependencies": {
-    "@vanilla-extract/sprinkles": "^1.5.1"
-  },
   "devDependencies": {
+    "@macaron-css/esbuild": "^1.0.0",
     "@packages/tsconfig": "workspace:*",
     "@unocss/preset-wind": "^0.47.1",
-    "@vanilla-extract/css": "^1.9.2",
-    "@vanilla-extract/esbuild-plugin": "^2.2.0",
     "tslib": "^2.4.1",
     "tsup": "^6.5.0"
+  },
+  "dependencies": {
+    "@macaron-css/core": "^1.0.0",
+    "@vanilla-extract/sprinkles": "^1.5.1"
   }
 }

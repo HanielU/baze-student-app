@@ -1,6 +1,6 @@
 import { defineConfig } from "tsup";
-import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 import { dependencies, devDependencies } from "./package.json";
+import { macaronEsbuildPlugins } from "@macaron-css/esbuild";
 
 export default defineConfig({
   // entry: ["src/index.ts"],
@@ -18,11 +18,7 @@ export default defineConfig({
   format: [/* "cjs", */ "esm"],
   dts: true,
   platform: "browser",
-  esbuildPlugins: [
-    vanillaExtractPlugin({
-      identifiers: "short",
-    }),
-  ],
+  esbuildPlugins: [...macaronEsbuildPlugins()],
   external: Object.keys(dependencies).concat(Object.keys(devDependencies)),
   clean: true,
 });

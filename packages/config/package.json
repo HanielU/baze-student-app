@@ -21,17 +21,16 @@
     }
   },
   "devDependencies": {
+    "@macaron-css/vite": "^1.0.0",
     "@packages/tsconfig": "workspace:*",
-    "@sveltejs/adapter-auto": "1.0.0-next.90",
-    "@sveltejs/adapter-static": "1.0.0-next.48",
-    "@sveltejs/kit": "1.0.0-next.572",
-    "@vanilla-extract/vite-plugin": "^3.7.0",
-    "svelte-preprocess": "^4.10.7",
+    "@sveltejs/adapter-auto": "1.0.0",
+    "@sveltejs/adapter-static": "1.0.0",
+    "@sveltejs/kit": "1.0.1",
     "tslib": "^2.4.1",
     "tsup": "^6.5.0",
-    "typescript": "^4.9.3",
-    "unocss": "0.47.5",
-    "vite": "^3.2.5"
+    "typescript": "^4.9.4",
+    "unocss": "0.47.6",
+    "vite": "^4.0.2"
   },
   "dependencies": {
     "@packages/shared": "workspace:*"

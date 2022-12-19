@@ -1,5 +1,5 @@
 import { themeVars, themeColorsMain } from "@/theme";
-import { createGlobalTheme, createGlobalThemeContract } from "@vanilla-extract/css";
+import { createGlobalTheme, createGlobalThemeContract } from "@macaron-css/core";
 
 // https://vanilla-extract.style/documentation/global-api/create-global-theme-contract/#formatting-the-variable-names
 export const theme = createGlobalThemeContract(

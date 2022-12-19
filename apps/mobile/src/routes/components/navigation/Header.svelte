@@ -1,6 +1,6 @@
 <script>
   import { sidebarOpen } from "$lib/stores";
-  import { menuBtn } from "./Header.css";
+  import { menuBtn } from "./Header.mac";
 
   let studentName = "Haniel Efe-Tobore Ubogu";
 </script>

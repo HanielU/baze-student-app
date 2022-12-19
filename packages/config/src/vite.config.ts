@@ -1,10 +1,10 @@
 import type { UserConfig as ViteConfig } from "vite";
 import unocss from "unocss/vite";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import { macaronVitePlugin } from "@macaron-css/vite";
 // import { sveltekit } from "@sveltejs/kit/vite"; // removed because Idk how it works and it's messing stuff up
 
 const viteConfig: ViteConfig = {
-  plugins: [unocss(), vanillaExtractPlugin()],
+  plugins: [unocss(), macaronVitePlugin()],
 };
 
 export default viteConfig;

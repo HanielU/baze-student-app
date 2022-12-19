@@ -1,5 +1,5 @@
 import { theme } from "@packages/shared/v-theme";
-import { style } from "@vanilla-extract/css";
+import { style } from "@macaron-css/core";
 
 export const menuBtn = style({
   position: "relative",
